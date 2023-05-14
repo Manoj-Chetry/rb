@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,52 +16,21 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/logo/logo.png" alt="logo">
-                <h1 class="brand-name">Radio Brahmaputra</h1>
-            </a>
+    <?php require "components/nav.php"; ?>
+
+
+    <?php require "components/sticky.php" ?>
+
+    <div class="popup" id="popup">
+        <div class="popup-txt">
+            <h1>Audio</h1>
+            <p>Playing now audio file!</p>
+            <button onclick="closepop()">Close</button>
         </div>
-
-        <div class="nav-menu" id="nav-menu">
-            <a class="nav-links" href="#">Home</a>
-            <a class="nav-links" href="about.html">About-Us</a>
-            <a class="nav-links" href="#">Resources</a>
-            <a class="nav-links" href="audio.html">Podcasts</a>
-            <a class="nav-links" href="video.html">Videos</a>
-            <a class="nav-links" href="#">Contact-Us</a>
-        </div>
-
-        <div class="hamburger">
-            <div class="ham-bars"></div>
-            <div class="ham-bars"></div>
-            <div class="ham-bars"></div>
-        </div>
-    </nav>
-
-
-    <div class="sticky_menu">
-        <a href="https://facebook.com" class="sticky_links">
-            <img src="assets/logo/social media/facebook.png" alt="">
-        </a>
-        <a href="https://twitter.com" class="sticky_links">
-            <img src="assets/logo/social media/twitter.png" alt="">
-        </a>
-        <a href="https://instagram.com" class="sticky_links">
-            <img src="assets/logo/social media/instagram.png" alt="">
-        </a>
-        <a href="https://wa.me/6003238501" class="sticky_links">
-            <img src="assets/logo/social media/whatsapp.png" alt="">
-        </a>
-        <a href="https://www.youtube.com/@RadioBrahmaputraCRS" class="sticky_links">
-            <img src="assets/logo/social media/youtube.png" alt="">
-        </a>
+        <img src="assets/podcasts/p1.avif" alt="">
     </div>
 
-
-
-    <div class="container">
+    <div class="container" id="container">
         <main>
             <div class="carousel">
                 <div class="swiper mySwiper">
@@ -82,25 +52,28 @@
                 <h1 class="title">Top Audio Podcasts</h1>
                 <a href="audio.html" class="view-link">View All</a>
             </div>
+
+            
             <div class="thumb-cont">
                 <div class="audio-card">
-                    <img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt="">
+                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
                 </div>
                 <div class="audio-card">
-                    <img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt="">
+                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
                 </div>
                 <div class="audio-card">
-                    <img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt="">
+                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
                 </div>
                 <div class="audio-card">
-                    <img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt="">
+                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
                 </div>
                 <div class="audio-card">
-                    <img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt="">
+                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
                 </div>
                 <div class="audio-card">
-                    <img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt="">
+                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
                 </div>
+                
             </div>
         </section>
 
@@ -335,7 +308,17 @@
 
 
 
+    <script>
+        function openpop(){
+            const container = document.getElementsById("container");
+            let popup = document.getElementsById("popup");
 
+            container.classList.add("container-blur");
+            popup.classList.add("popup-open");
+        }
+
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
@@ -391,6 +374,8 @@
         });
 
     </script>
+
+    
 
 
 </body>

@@ -1,3 +1,19 @@
+<?php
+session_start();
+include "../php/connection.php";
+
+if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
+    header("location: ../login.php");
+}
+
+$query = "select * from logo where id = '1'";
+$fquery = mysqli_query($con, $query);
+
+$fdata = mysqli_fetch_array($fquery);
+
+$img = $fdata['img']; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +32,7 @@
     <div class="container">
         <aside>
             <div class="aside-head">
-                <img id="logo" src="../assets/logo/logo.png" alt="logo">
+                <img id="logo" src="../assets/logo/<?php echo$img ?>" alt="logo">
                 <h2>Radio Brahmaputra</h2>
             </div>
             <hr style="width: 100%; margin-bottom: 20px;">
@@ -28,12 +44,14 @@
                     <button id="cms-btn" onclick="drop2()">
                         <li id="cms-drop"><span>CMS</span> <span>&or;</span></li>
                     </button>
+
+                    <a href="../php/logout.php" id="logout-btn">Logout</a>
                 </ul>
             </div>
         </aside>
         <main>
             <div class="main-head">
-                <h1>Welcome, John Doe <img src="../assets/logo/admin-logo/confetti.png" alt=""></h1>
+                <h1>Welcome, <?php echo $_SESSION['user']; ?> <img src="../assets/logo/admin-logo/confetti.png" alt=""></h1>
                 <p>This is your dashboard</p>
             </div>
             <section class="main">
@@ -65,17 +83,17 @@
 
             <section class="dashboard">
                 <div class="admin-cont" id="admin-cont">
-                    <a href="add-user.html">
-                        <div class="col">Add User</div>
+                    <a href="add-blog.php">
+                        <div class="col">Add Blogs</div>
                     </a>
                     <a href="manage-user.html">
-                        <div class="col">Manage Users</div>
+                        <div class="col">Manage Blogs</div>
                     </a>
                     <div class="col"></div>
                     <div class="col"></div>
                 </div>
                 <div class="cms-cont" id="cms-cont">
-                    <div class="col"></div>
+                    <a href="cms/update-logo.php?id=1"><div class="col">Change Logo</div></a>
                     <div class="col"></div>
                     <div class="col"></div>
                     <div class="col"></div>

@@ -67,6 +67,15 @@ aside {
     height: 50px;
 }
 
+#logout-btn {
+    width: 300px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    height: 40px;
+    background-color: #CD192A;
+}
+
 
 
 main {

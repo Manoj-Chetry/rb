@@ -9,58 +9,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/audio.css">
     <link rel="stylesheet" href="css/utility.css">
-    <title>Podcasts</title>
+    <title>Videos</title>
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/logo/logo.png" alt="logo">
-                <h1 class="brand-name">Radio Brahmaputra</h1>
-            </a>
-        </div>
-
-        <div class="nav-menu" id="nav-menu">
-            <a class="nav-links" href="#">Home</a>
-            <a class="nav-links" href="about.html">About-Us</a>
-            <a class="nav-links" href="#">Resources</a>
-            <a class="nav-links" href="audio.html">Podcasts</a>
-            <a class="nav-links" href="video.html">Videos</a>
-            <a class="nav-links" href="#">Contact-Us</a>
-        </div>
-
-        <div class="hamburger">
-            <div class="ham-bars"></div>
-            <div class="ham-bars"></div>
-            <div class="ham-bars"></div>
-        </div>
-    </nav>
+    <?php require "components/nav.php"; ?>
 
 
-    <div class="sticky_menu">
-        <a href="https://facebook.com" class="sticky_links">
-            <img src="assets/logo/social media/facebook.png" alt="">
-        </a>
-        <a href="https://twitter.com" class="sticky_links">
-            <img src="assets/logo/social media/twitter.png" alt="">
-        </a>
-        <a href="https://instagram.com" class="sticky_links">
-            <img src="assets/logo/social media/instagram.png" alt="">
-        </a>
-        <a href="https://wa.me/6003238501" class="sticky_links">
-            <img src="assets/logo/social media/whatsapp.png" alt="">
-        </a>
-        <a href="https://www.youtube.com/@RadioBrahmaputraCRS" class="sticky_links">
-            <img src="assets/logo/social media/youtube.png" alt="">
-        </a>
-    </div>
+    <?php require "components/sticky.php" ?>
 
 
 
 
     <main class="container">
-        <h1>AUDIO/PODCASTS</h1>
+        <h1>VIDEOS</h1>
         <div class="card-cont">
             <div class="card">
                 <img class="card-img" src="assets/podcasts/p1.avif" alt="#">
