@@ -1,4 +1,11 @@
+<?php
+include "php/connection.php";
 
+$query = "select * from blogs";
+$iquery = mysqli_query($con,$query);
+
+$count = mysqli_num_rows($iquery);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,46 +151,35 @@
             <div class="blog-container">
                 <div class="box">
                     <img src="assets/blogs/t.jpg" alt="Image 1">
-                    <div class="blog-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                            voluptates
-                            veniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                            provident
-                            itaque soluta quaerat! Natus, itaque laboriosam porro eligendi alias, iure error quod optio
-                            vitae
-                            rem laborum incidunt dolorum distinctio. Commodi quis repellendus cupiditate reiciendis
-                            doloribus?</p>
-                    </div>
+                    <h2>Title</h2>
+                    <span class="blog-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
+                        voluptatesveniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
+                        provident    
+                    </span>
                     <a class="more-link" href="#">(More)</a>
                 </div>
                 <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 2">
-                    <div class="blog-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                            voluptates
-                            veniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                            provident
-                            itaque soluta quaerat! Natus, itaque laboriosam porro eligendi alias, iure error quod optio
-                            vitae
-                            rem laborum incidunt dolorum distinctio. Commodi quis repellendus cupiditate reiciendis
-                            doloribus?</p>
-                    </div>
+                    <img src="assets/blogs/t.jpg" alt="Image 1">
+                    <h2>Title</h2>
+                    <span class="blog-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
+                        voluptatesveniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
+                        provident    
+                    </span>
                     <a class="more-link" href="#">(More)</a>
                 </div>
                 <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 3">
-                    <div class="blog-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                            voluptates
-                            veniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                            provident
-                            itaque soluta quaerat! Natus, itaque laboriosam porro eligendi alias, iure error quod optio
-                            vitae
-                            rem laborum incidunt dolorum distinctio. Commodi quis repellendus cupiditate reiciendis
-                            doloribus?</p>
-                    </div>
+                    <img src="assets/blogs/t.jpg" alt="Image 1">
+                    <h2>Title</h2>
+                    <span class="blog-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
+                        voluptatesveniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
+                        provident    
+                    </span>
                     <a class="more-link" href="#">(More)</a>
                 </div>
+                
             </div>
         </section>
 
@@ -193,48 +189,21 @@
                 <a href="#" class="view-link">View All</a>
             </div>
             <div class="blog-container">
+            <?php
+            if($count){
+                while($fdata = mysqli_fetch_assoc($iquery)){?>
                 <div class="box">
                     <img src="assets/blogs/t.jpg" alt="Image 1">
-                    <div class="blog-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                            voluptates
-                            veniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                            provident
-                            itaque soluta quaerat! Natus, itaque laboriosam porro eligendi alias, iure error quod optio
-                            vitae
-                            rem laborum incidunt dolorum distinctio. Commodi quis repellendus cupiditate reiciendis
-                            doloribus?</p>
-                    </div>
+                    <h2><?php echo"$fdata[title]"; ?></h2>
+                    <span class="blog-text">
+                        <?php echo"$fdata[description]"; ?>    
+                    </span>
                     <a class="more-link" href="#">(More)</a>
                 </div>
-                <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 2">
-                    <div class="blog-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                            voluptates
-                            veniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                            provident
-                            itaque soluta quaerat! Natus, itaque laboriosam porro eligendi alias, iure error quod optio
-                            vitae
-                            rem laborum incidunt dolorum distinctio. Commodi quis repellendus cupiditate reiciendis
-                            doloribus?</p>
-                    </div>
-                    <a class="more-link" href="#">(More)</a>
-                </div>
-                <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 3">
-                    <div class="blog-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                            voluptates
-                            veniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                            provident
-                            itaque soluta quaerat! Natus, itaque laboriosam porro eligendi alias, iure error quod optio
-                            vitae
-                            rem laborum incidunt dolorum distinctio. Commodi quis repellendus cupiditate reiciendis
-                            doloribus?</p>
-                    </div>
-                    <a class="more-link" href="#">(More)</a>
-                </div>
+                <?php $count--; }
+                }
+                ?>
+                
             </div>
         </section>
 

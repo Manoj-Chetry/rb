@@ -83,10 +83,10 @@ $img = $fdata['img'];
 
             <section class="dashboard">
                 <div class="admin-cont" id="admin-cont">
-                    <a href="add-blog.php">
+                    <a href="cms/add-blog.php">
                         <div class="col">Add Blogs</div>
                     </a>
-                    <a href="manage-user.html">
+                    <a href="cms/blogs.php">
                         <div class="col">Manage Blogs</div>
                     </a>
                     <div class="col"></div>
