@@ -83,9 +83,7 @@ $img = $fdata['img'];
 
             <section class="dashboard">
                 <div class="admin-cont" id="admin-cont">
-                    <a href="cms/add-blog.php">
-                        <div class="col">Add Blogs</div>
-                    </a>
+                    
                     <a href="cms/blogs.php">
                         <div class="col">Manage Blogs</div>
                     </a>
@@ -94,9 +92,15 @@ $img = $fdata['img'];
                 </div>
                 <div class="cms-cont" id="cms-cont">
                     <a href="cms/update-logo.php?id=1"><div class="col">Change Logo</div></a>
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
+                    
+                    <a href="cms/home/edit-home.php">
+                        <div class="col">Edit Home</div>
+                    </a>
+                    
+                    
+                    <a href="cms/blog/edit-blog.php">
+                        <div class="col">Edit Blogs</div>
+                    </a>
                 </div>
             </section>
         </main>

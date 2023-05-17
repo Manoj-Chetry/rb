@@ -1,4 +1,6 @@
 <?php
+
+error_reporting(0);
 include "php/connection.php";
 
 $query = "select * from blogs";
@@ -230,49 +232,7 @@ $count = 3;
 
 
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>company</h4>
-                    <ul>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">affiliate program</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>get help</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">payment options</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>online forms</h4>
-                    <ul>
-                        <li><a href="#">internship</a></li>
-                        <li><a href="#">donation</a></li>
-                        <li><a href="#">join</a></li>
-                        <li><a href="#">contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a class="sticky_links" href="#"><img src="assets/logo/social media/facebook.png"
-                                class=""></img></a>
-                        <a class="sticky_links" href="#"><img src="assets/logo/social media/twitter.png"
-                                class=""></img></a>
-                        <a class="sticky_links" href="#"><img src="assets/logo/social media/instagram.png"
-                                class=""></img></a>
-                        <a class="sticky_links" href="#"><img src="assets/logo/social media/youtube.png"
-                                class=""></img></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php require "components/footer.php"; ?>
 
 
 

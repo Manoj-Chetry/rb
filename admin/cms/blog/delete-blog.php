@@ -1,5 +1,5 @@
 <?php
-include "../../php/connection.php";
+include "../../../php/connection.php";
 
 $id = $_GET['id'];
 
@@ -18,10 +18,9 @@ if($delete){
     echo"
     <script>
         alert('Deleted Successfully');
-        location.replace('blogs.php');
+        location.replace('edit-blog.php');
     </script>";
 }
-
 
 
 ?>

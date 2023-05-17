@@ -49,5 +49,7 @@ $count = mysqli_num_rows($iquery);
         
         
     </main>
+
+    <?php require "components/footer.php"; ?>
 </body>
 </html>

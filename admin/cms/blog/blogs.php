@@ -6,7 +6,7 @@ if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
     header("location: ../../login.php");
 }
 
-include "../../php/connection.php";
+include "../../../php/connection.php";
 
 $query = "select * from blogs";
 $iquery = mysqli_query($con,$query);
@@ -37,7 +37,7 @@ $count = mysqli_num_rows($iquery);
     if($count){
         while($fdata = mysqli_fetch_assoc($iquery)){?>
             <div class="card">
-                <img src="../../assets/blogs/t.jpg" alt="#">
+                <img src="../../../assets/blogs/t.jpg" alt="#">
                 <h2><?php echo"$fdata[title]"; ?></h2>
                 <span><?php echo"$fdata[description]"; ?></span>
                 <div class="btns">

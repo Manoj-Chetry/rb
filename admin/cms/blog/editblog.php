@@ -1,16 +1,14 @@
 <?php
 session_start();
-// error_reporting(0);
 
 $id = $_GET['id'];
 
 if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
-    header("location: ../login.php");
+    header("location: ../../../login.php");
 }
 
-include "../../php/connection.php";
+include "../../../php/connection.php";
 
-echo"$id";
 
     $query = "select * from blogs where id ='$id'";
     $iquery = mysqli_query($con,$query);
