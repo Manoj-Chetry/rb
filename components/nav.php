@@ -33,10 +33,10 @@ $img = $fdata['img'];
         <div class="nav-menu" id="nav-menu">
             <a class="nav-links" href="../rb/index.php">Home</a>
             <a class="nav-links" href="../rb/about.php">About-Us</a>
-            <a class="nav-links" href="#">Resources</a>
+            <a class="nav-links" href="blogs.php">Blogs</a>
             <a class="nav-links" href="../rb/audio.php">Podcasts</a>
             <a class="nav-links" href="../rb/video.php">Videos</a>
-            <a class="nav-links" href="#">Contact-Us</a>
+            <a class="nav-links" href="../rb/contact.php">Contact-Us</a>
         </div>
 
         <div class="hamburger">

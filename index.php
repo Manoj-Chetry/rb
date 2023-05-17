@@ -4,7 +4,9 @@ include "php/connection.php";
 $query = "select * from blogs";
 $iquery = mysqli_query($con,$query);
 
-$count = mysqli_num_rows($iquery);
+$count = 3;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +59,7 @@ $count = mysqli_num_rows($iquery);
         <section class="podcasts">
             <div class="lead">
                 <h1 class="title">Top Audio Podcasts</h1>
-                <a href="audio.html" class="view-link">View All</a>
+                <a href="audio.php" class="view-link">View All</a>
             </div>
 
             
@@ -87,7 +89,7 @@ $count = mysqli_num_rows($iquery);
         <section class="podcasts">
             <div class="lead">
                 <h1 class="title">Videos</h1>
-                <a href="video.html" class="view-link">View All</a>
+                <a href="video.php" class="view-link">View All</a>
             </div>
             <div class="thumb-cont">
                 <div class="audio-card">
@@ -133,7 +135,7 @@ $count = mysqli_num_rows($iquery);
         <section class="about">
             <div class="lead">
                 <h1 class="title">About-Us</h1>
-                <a href="about.html" class="view-link">View All</a>
+                <a href="about.php" class="view-link">View All</a>
             </div>
             <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis porro inventore,
                 necessitatibus
@@ -186,22 +188,23 @@ $count = mysqli_num_rows($iquery);
         <section class="blogs">
             <div class="lead">
                 <h1 class="title">Blogs</h1>
-                <a href="#" class="view-link">View All</a>
+                <a href="blogs.php" class="view-link">View All</a>
             </div>
             <div class="blog-container">
             <?php
-            if($count){
-                while($fdata = mysqli_fetch_assoc($iquery)){?>
+                while($count>0){?>
+                <?php $fdata = mysqli_fetch_assoc($iquery); ?>
                 <div class="box">
                     <img src="assets/blogs/t.jpg" alt="Image 1">
                     <h2><?php echo"$fdata[title]"; ?></h2>
                     <span class="blog-text">
                         <?php echo"$fdata[description]"; ?>    
                     </span>
-                    <a class="more-link" href="#">(More)</a>
+                    <div class="btns">
+                        <a class="edit" href="#">Read More</a>
+                    </div>
                 </div>
                 <?php $count--; }
-                }
                 ?>
                 
             </div>
