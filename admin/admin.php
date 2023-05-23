@@ -91,15 +91,28 @@ $img = $fdata['img'];
                     <div class="col"></div>
                 </div>
                 <div class="cms-cont" id="cms-cont">
-                    <a href="cms/update-logo.php?id=1"><div class="col">Change Logo</div></a>
+                    <a href="cms/update-logo.php?id=1">
+                        <div class="col">Change Logo</div>
+                    </a>
                     
                     <a href="cms/home/edit-home.php">
                         <div class="col">Edit Home</div>
                     </a>
-                    
+                    <a href="cms/about/edit-about.php">
+                        <div class="col">Edit About</div>
+                    </a>
+                    <a href="cms/audio/edit-audio.php">
+                        <div class="col">Edit Podcast</div>
+                    </a>
+                    <a href="cms/video/edit-video.php">
+                        <div class="col">Edit Video</div>
+                    </a>
                     
                     <a href="cms/blog/edit-blog.php">
                         <div class="col">Edit Blogs</div>
+                    </a>
+                    <a href="cms/contact/edit-contact.php">
+                        <div class="col">Edit Contact Us</div>
                     </a>
                 </div>
             </section>

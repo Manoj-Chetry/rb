@@ -43,13 +43,18 @@ $count = 3;
 
     <div class="container" id="container">
         <main>
+            <?php 
+                $sql = "select * from home where id = '1'";
+                $isql = mysqli_query($con,$sql);
+                $fetch = mysqli_fetch_array($isql);
+            ?>
             <div class="carousel">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="assets/gallery/g1.jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/gallery/g2.jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/gallery/g3.jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/gallery/g4.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image1]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image2]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image3]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image4]"; ?>" alt=""></div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -67,7 +72,7 @@ $count = 3;
             
             <div class="thumb-cont">
                 <div class="audio-card">
-                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7KA4W4McWYRpgf0fWsJZWB?utm_source=generator" width="100%" height="260px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
                 <div class="audio-card">
                     <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
@@ -133,16 +138,14 @@ $count = 3;
             </div>
         </section>
 
-        <div class="community_videos"></div>
+        
         <section class="about">
             <div class="lead">
                 <h1 class="title">About-Us</h1>
                 <a href="about.php" class="view-link">View All</a>
             </div>
-            <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis porro inventore,
-                necessitatibus
-                reprehenderit architecto ex, tempora perspiciatis eius nesciunt repellat adipisci impedit libero tempore
-                itaque? Cum facere fugit omnis vel?
+            <p class="content">
+                <?php echo"$fetch[about]"; ?> 
             </p>
             <a href="#" class="support-btn">Support-Us</a>
         </section>

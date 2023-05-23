@@ -31,6 +31,9 @@ $slno = 0;
 <body>
     <h1 id="header">Blogs - Update and Delete Blogs</h1>
 
+    <a class="delete" href="blogs.php">Blogs</a>
+    <a class="delete" href="add-blog.php">Add Blogs</a>
+
     <main class="container">
     <table id="table">
                 <thead>

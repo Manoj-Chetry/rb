@@ -35,8 +35,9 @@ $count = mysqli_num_rows($iquery);
 
     <?php 
     if($count){
-        while($fdata = mysqli_fetch_assoc($iquery)){?>
-            <div class="card">
+        while($fdata = mysqli_fetch_assoc($iquery)){
+            if($fdata['publish'] == true){?>
+                <div class="card">
                 <img src="../../../assets/blogs/t.jpg" alt="#">
                 <h2><?php echo"$fdata[title]"; ?></h2>
                 <span><?php echo"$fdata[description]"; ?></span>
@@ -45,7 +46,8 @@ $count = mysqli_num_rows($iquery);
                     <a class="delete" href="delete-blog.php?id=<?php echo"$fdata[id]"; ?>">Delete</a>
                 </div>
             </div>
-    <?php $count--; }
+          <?php  }
+     $count--; }
     }
     ?>
         

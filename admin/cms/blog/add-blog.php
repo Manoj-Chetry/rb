@@ -3,10 +3,10 @@ session_start();
 // error_reporting(0);
 
 if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
-    header("location: ../../login.php");
+    header("location: ../../../login.php");
 }
 
-include "../../php/connection.php";
+include "../../../php/connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +16,16 @@ include "../../php/connection.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script scr="../../ckeditor5-build-classic-37.0.1\ckeditor5-build-classic\ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
     <link rel="stylesheet" href="../../../css/admin css/addblog.css">
-    <title>Add-User</title>
+    <title>Add-Blog</title>
 </head>
 
 <body>
     <div class="container">
         <h1>Add New Blog</h1>
         <hr>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" required>
 
@@ -33,7 +33,7 @@ include "../../php/connection.php";
             <input type="text" id="description" name="description" required>
 
             <label for="content">Content</label>
-            <textarea name="content" id="content" cols="30" rows="10" required></textarea>
+            <textarea name="content" id="content" cols="30" rows="10" ></textarea>
 
             <label for="author">Author</label>
             <input type="text" id="author" name="author" required>
@@ -42,8 +42,8 @@ include "../../php/connection.php";
             <label for="img">Blog Image</label>
             <input type="file" id="img" name="img" required accept=".jpg, .jpeg, .png">
 
-            <input type="submit" value="POST" id="btn" name="submit" onclick="">
-
+            <input type="submit" name="submit" id="submit" value="POST" class="btn">
+            </form>
             <div style="color: black;">
                 <?php
 
@@ -53,21 +53,26 @@ include "../../php/connection.php";
                     $cont = $_POST['content'];
                     $auth = $_POST['author'];
                     $pic = $_FILES['img']['name'];
+                    $er = $_FILES['img']['error'];
 
-                    $query = "insert into blogs (title, description, content, author, image) values ('$title','$desc','$cont','$auth','$pic')";
+                    echo"$er";
 
+                    move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/blogs/.$pic"); 
+
+                    $query = "insert into blogs (title, description, content, author, image, publish) values ('$title','$desc','$cont','$auth','$pic', 'false')";
+
+                    
+                    
                     $iquery = mysqli_query($con, $query);
 
-                    if($iquery){
-                        if($pic!=''){
-                            move_uploaded_file($_FILES['img']['tmp_name'], "../assets/blogs/".$_FILES['img']['name']);
-                        }
 
+                    if($iquery){
+                    
 
                         echo "
                         <script>
                             alert('Blog Posted Successfully');
-                            location.replace('blogs.php');
+                            location.replace('edit-blog.php');
                         </script>
                         ";
                     }else{
@@ -83,7 +88,7 @@ include "../../php/connection.php";
 
                 ?>
             </div>
-        </form>
+        
     </div>
 
 
