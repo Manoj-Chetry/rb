@@ -6,6 +6,8 @@
     padding: 0;
 }
 
+
+
 a {
     text-decoration: none;
 }
@@ -99,4 +101,8 @@ textarea {
 #btn:hover {
     background-color: #961c29;
     box-shadow: none;
+}
+
+#header {
+    margin-bottom: 20px;
 }

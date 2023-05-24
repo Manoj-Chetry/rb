@@ -22,7 +22,7 @@
 
 
     <main class="container">
-        <h1>AUDIO/PODCASTS</h1>
+        <h1 class="header">AUDIO/PODCASTS</h1>
         <div class="card-cont">
             <div class="card">
                 <img class="card-img" src="assets/podcasts/p1.avif" alt="#">
