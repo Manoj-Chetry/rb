@@ -73,6 +73,18 @@ nav {
     transition: all .3s ease;
 }
 
+.bar1after {
+    transform: translateY(6px) rotate(-45deg);
+}
+
+.bar2after {
+    opacity: 0;
+}
+
+.bar3after {
+    transform: translateY(-6px) rotate(45deg);
+}
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -88,6 +100,27 @@ nav {
 
 .nav-links:hover {
     background-color: #961c29;
+}
+
+.nav-menu-hidden {
+    display: none;
+    flex-direction: column;
+    background-color: #CD192A;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    padding: 10px;
+    transition: .5s ease-in-out;
+}
+
+.nav-menu-hidden .nav-links {
+    margin: 5px 0;
+    width: 100%;
+    padding: 10px;
 }
 
 
@@ -216,6 +249,11 @@ nav {
 
     .hamburger {
         display: block;
+    }
+
+    .nav-menu-hidden {
+        display: flex;
+        z-index: 999;
     }
 }
 

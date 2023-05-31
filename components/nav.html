@@ -1,18 +1,3 @@
-<?php 
-include "php/connection.php";
-
-
-$query = "select * from logo where id = '1'";
-$fquery = mysqli_query($con, $query);
-
-$fdata = mysqli_fetch_array($fquery);
-
-$img = $fdata['img']; 
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +10,7 @@ $img = $fdata['img'];
     <nav>
         <div class="logo">
             <a href="../rb/index.php">
-                <img src="assets/logo/<?php echo$img ?>" alt="logo">
+                <!-- <img src="assets/logo/<?php echo$img ?>" alt="logo"> -->
                 <h1 class="brand-name">Radio Brahmaputra</h1>
             </a>
         </div>
@@ -52,7 +37,9 @@ $img = $fdata['img'];
             <div class="ham-bars" id="bar2"></div>
             <div class="ham-bars" id="bar3"></div>
         </div>
+
     </nav>
+
 
 
 
@@ -88,4 +75,5 @@ $img = $fdata['img'];
         }
     </script>
 </body>
+
 </html>
