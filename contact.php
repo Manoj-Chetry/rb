@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/utility.css">
     <link rel="stylesheet" href="css/ContactUs.css">
+    <link rel="stylesheet" href="css/utility.css">
     <title>Contact Us</title>
 </head>
 
@@ -17,13 +17,12 @@
 
 
     <?php require "components/sticky.php" ?>
-
-    <section class="contact">
-        <div class="content">
-            <h2>Contact Us</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati harum possimus minus aliquam quaerat
-                odio, dolor commodi optio inventore ea magni molestias excepturi laboriosa.</p>
+    
+        <div id="head">
+            <img src="assets/icons/operator.png" id="head_img" alt="">
+            <h1>Contact Us</h1>
         </div>
+    <main class="contact">
         <div class="container">
             <div class="contactinfo">
                 <div class="contactusbox">
@@ -77,7 +76,7 @@
                 </form>
             </div>
         </div>
-    </section>
+</main>
 
 
     <?php require "components/footer.php"; ?>

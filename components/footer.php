@@ -14,7 +14,7 @@
 
  /* Footer Section */
 
-.container {
+.fcontainer {
     max-width: 1170px;
     margin: auto;
 }
@@ -427,7 +427,7 @@ textarea {
 <body>
         <!-- Site footer -->
         <footer class="footer">
-        <div class="container">
+        <div class="fcontainer">
             <div class="row">
                 <!-- <div class="footer-col">
                     <h4>Radio Brahmaputra</h4>

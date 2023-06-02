@@ -20,7 +20,8 @@
 
 
     <main class="container">
-        <div class="header">
+        <div id="head">
+            <img src="assets/icons/info.png" id="head_img" alt="">
             <h1>About-Us</h1>
         </div>
         <div class="row">

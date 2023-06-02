@@ -101,7 +101,7 @@ $img = $fdata['img'];
                     <a href="cms/about/edit-about.php">
                         <div class="col">Edit About</div>
                     </a>
-                    <a href="cms/audio/edit-audio.php">
+                    <a href="cms/audio/add.php">
                         <div class="col">Edit Podcast</div>
                     </a>
                     <a href="cms/video/edit-video.php">

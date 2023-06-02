@@ -8,7 +8,7 @@ if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
 
 include "../../../php/connection.php";
 
-$query = "select * from blogs";
+$query = "select * from blogs order by id desc";
 $iquery = mysqli_query($con,$query);
 
 $count = mysqli_num_rows($iquery);

@@ -3,7 +3,7 @@
 error_reporting(0);
 include "php/connection.php";
 
-$query = "select * from blogs";
+$query = "select * from blogs order by id desc";
 $iquery = mysqli_query($con,$query);
 
 $count = 3;
@@ -70,25 +70,25 @@ $count = 3;
             </div>
 
             
-            <div class="thumb-cont">
-                <div class="audio-card">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7KA4W4McWYRpgf0fWsJZWB?utm_source=generator" width="100%" height="260px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="audio-card">
-                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
-                </div>
-                <div class="audio-card">
-                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
-                </div>
-                <div class="audio-card">
-                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
-                </div>
-                <div class="audio-card">
-                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
-                </div>
-                <div class="audio-card">
-                    <button onclick="openpop()" class="m-0"><img class="audio-thumbnail" src="assets/podcasts/p1.avif" alt=""></button>
-                </div>
+            <div class="acontainer thumb-cont">
+                <?php
+                    $sql = "select * from audio order by id desc";
+                    $fsql = mysqli_query($con, $sql);
+                    $p = mysqli_num_rows($fsql);
+                    while($p>0){
+                        $fget = mysqli_fetch_array($fsql);?>
+                        <div class="acard">
+                            <div class="top"></div>
+                            <div class="bottom"></div>
+                            <div class="center">
+                                <img class="aimg" src="assets/images/<?php echo"$fget[cover]"; ?>" alt="">
+                            </div>
+                            <div class="play">
+                                <img src="assets/images/play-button.png" alt="">
+                            </div>
+                        </div>
+                    <?php $p--; }
+                ?>
                 
             </div>
         </section>
@@ -228,7 +228,35 @@ $count = 3;
 
         </section>
 
-        <div class="joinus"></div>
+
+        <section id="testimonials">
+            <div class="lead">
+                <h1 class="title">Testimonials</h1>
+            </div>
+            <div class="test-cont">
+                <span class="tcard">
+                    <img src="assets/logo/logo.png" alt="">
+                    <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
+
+                    <span class="author">John Doe</span>
+                </span>
+                <span class="tcard">
+                    <img src="assets/logo/logo.png" alt="">
+                    <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
+
+                    <span class="author">John Doe</span>
+                </span>
+                <span class="tcard">
+                    <img src="assets/logo/logo.png" alt="">
+                    <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
+
+                    <span class="author">John Doe</span>
+                </span>
+            </div>
+
+        </section>
+
+        
 
     </div>
 
@@ -243,17 +271,6 @@ $count = 3;
 
 
 
-    <script>
-        function openpop(){
-            const container = document.getElementsById("container");
-            let popup = document.getElementsById("popup");
-
-            container.classList.add("container-blur");
-            popup.classList.add("popup-open");
-        }
-
-
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 

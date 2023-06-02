@@ -10,20 +10,35 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-#header {
-    /* margin-top: 20px; */
-    width: 100%;
-    background-color: rgb(245, 219, 219);
-    padding: 10px 40px;
+main {
+    margin: 10px auto;
+    width: 1400px;
+    height: fit-content;
+}
 
+#head {
+    height: 80px;
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#head img {
+    width: 50px;
+}
+
+#head_img {
+    height: 50px;
+    margin-right: 20px;
 }
 
 .container {
     width: 1300px;
     height: fit-content;
-    margin: 30px auto;
+    margin: 0 auto;
     border-radius: 10px;
-    padding: 30px 20px;
+    padding: 0px 20px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +47,6 @@ body {
 
 .card {
     width: 28%;
-
     flex-basis: 30%;
     margin: 0 20px 20px 20px;
     display: flex;

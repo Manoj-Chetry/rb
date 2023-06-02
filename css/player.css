@@ -1,0 +1,54 @@
+.player {
+    height: 550px;
+    width: 600px;
+    background-color: rgb(108, 101, 101);
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.image {
+    height: 80%;
+    width: 560px;
+    margin: 10px auto;
+}
+
+.image img {
+    height: 100%;
+    width: 560px;
+}
+
+audio {
+    margin: 20px 30px;
+    width: 500px;
+    background: none;
+    color: aliceblue;
+}
+
+audio::-webkit-media-controls-enclosure {
+    background: none;
+    color: aliceblue;
+}
+
+table {
+    background-color: rgb(30, 35, 35);
+    width: 100%;
+    padding: 20px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+tr {
+    padding: 10px;
+}
+
+tr:hover {
+    background-color: rgb(27, 30, 30);
+}
+
+.title {
+    width: 70%;
+}

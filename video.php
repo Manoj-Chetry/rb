@@ -29,7 +29,7 @@ $count = mysqli_num_rows($iquery);
     <style>
         iframe{
             width: 100%;
-            height: 100%;
+            height: 80%;
         }
     </style>
 </head>
@@ -44,7 +44,10 @@ $count = mysqli_num_rows($iquery);
 
 
     <main class="container">
-        <h1 class="header">VIDEOS</h1>
+    <div id="head">
+            <img src="assets/icons/video.png" id="head_img" alt="">
+            <h1>Videos</h1>
+        </div>
         <div class="card-cont">
 
         <?php 
@@ -52,8 +55,9 @@ $count = mysqli_num_rows($iquery);
             while($fdata = mysqli_fetch_assoc($iquery)){
                 if($fdata['publish'] == true){?>
                     <div class="card">
-                    <?php echo"$fdata[link]"; ?>
-                </div>
+                        <?php echo"$fdata[link]"; ?>
+                        <span><?php echo"$fdata[description]"; ?></span>
+                    </div>
           <?php  }
             $count--; }
         }

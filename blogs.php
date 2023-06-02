@@ -2,7 +2,7 @@
 
 include "php/connection.php";
 
-$query = "select * from blogs";
+$query = "select * from blogs order by id desc";
 $iquery = mysqli_query($con,$query);
 
 $count = mysqli_num_rows($iquery);
@@ -27,25 +27,31 @@ $count = mysqli_num_rows($iquery);
 
 <?php include "components/nav.php"; ?>
 <?php require "components/sticky.php"; ?>
-    <h1 id="header">Blogs - Update and Delete Blogs</h1>
 
-    <main class="container">
+    <main>
+        <div id="head">
+            <img src="assets/icons/blog.png" id="head_img" alt="">
+            <h1>Blogs</h1>
+        </div>
 
+
+    <div class="container">
     <?php 
     if($count){
-        while($fdata = mysqli_fetch_assoc($iquery)){?>
-            <div class="card">
-                <img src="assets/blogs/t.jpg" alt="#">
-                <h2><?php echo"$fdata[title]"; ?></h2>
-                <span><?php echo"$fdata[description]"; ?></span>
-                <div class="btns">
-                    <a class="edit" href="#">Read More</a>
-                    
+        while($fdata = mysqli_fetch_assoc($iquery)){
+            if($fdata['publish'] == true){?>
+                <div class="card">
+                    <img src="assets/blogs/t.jpg" alt="#">
+                    <h2><?php echo"$fdata[title]"; ?></h2>
+                    <span><?php echo"$fdata[description]"; ?></span>
+                    <div class="btns">
+                        <a class="edit" href="#">Read More</a>      
+                    </div>
                 </div>
-            </div>
-    <?php $count--; }
+    <?php } $count--; }
     }
     ?>
+    </div>
         
         
     </main>
