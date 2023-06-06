@@ -58,14 +58,39 @@ $count = mysqli_num_rows($fquery);
             <div class="msg">
                 <?php 
                     if(isset($_POST['submit'])){
-                        $file = $_FILES['audio'];
+                        $file = $_FILES['audio']['name'];
                         $title = $_POST['title'];
                         $desc = $_POST['description'];
                         $playlist = $_POST['playlist'];
-                        $cover = $_FILES['cover'];
+                        $cover = $_FILES['cover']['name'];
 
-                        $sql = "select * from audio
+                        move_uploaded_file($_FILES['cover']['tmp_name'], "../../../assets/podcasts/$cover"); 
+                        move_uploaded_file($_FILES['audio']['tmp_name'], "../../../audio/$file"); 
+
+                        $sql = "insert into audio (audio, Title, Description, playlist, cover) values ('$file','$title','$desc','$playlist','$cover')";
+
+                    
+                    
+                    $isql = mysqli_query($con, $sql);
+
+
+                    if($isql){
+                    
+
+                        echo "
+                        <script>
+                            alert('Podcast Posted Successfully');
+                            location.replace('add.php');
+                        </script>
                         ";
+                    }else{
+                        echo"
+                        <script>
+                            alert('Failed to Post!');
+                        </script>
+                        ";
+                    }
+
                     }
                 ?>
             </div>

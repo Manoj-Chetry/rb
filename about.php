@@ -1,3 +1,19 @@
+<?php
+session_start();
+include "php/connection.php";
+
+$query = "select * from about";
+$fetch = mysqli_query($con, $query);
+
+
+$query = "select * from about where id = '5'";
+$lquery = mysqli_query($con,$query);
+
+$location = mysqli_fetch_array($lquery);
+
+$count = 1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,96 +36,42 @@
 
 
     <main class="container">
-        <div id="head">
-            <img src="assets/icons/info.png" id="head_img" alt="">
+        <div class="header">
             <h1>About-Us</h1>
         </div>
-        <div class="row">
-            <div class="col txt-col">
-                <p>
-                    <b>Brahmaputra Community Radio Station</b>, (Radio Brahmaputra 90.4MHZ) is the first grassroots
-                    community
-                    radio station of North East India situated in the district of Dibrugarh, Assam. It is established to
-                    cater the communication need of the marginalized communities: those lives in geographically isolated
-                    as well as media dark regions such as islands, tea garden and other remote villages who speaks local
-                    languages and dialects which mainstream media does not include as part of their programs.
-                </p><br>
-
-
-
-                <p>Radio Brahmaputra is a wing of the Centre for North East Studies and Policy Research(C-NES), which
-                    has been working in the region since 2000 on various issues relating to public health, education,
-                    livelihood, sanitation and drinking water, ecology, environment and pollution, gender and human
-                    rights as well as energy and governance etc. through innovative application of ideas such as the
-                    Boat Clinics in partnership with the National Rural Health Mission, Government of Assam, which has
-                    reached over 13,00,000 patients with sustained primary health care services.</p>
-            </div>
-            <div class="col img-col">
-                <img src="assets/gallery/g1.jpg" alt="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col img-col">
-                <img src="assets/gallery/g2.jpg" alt="">
-            </div>
-            <div class="col txt-col">
-                <h2>OUR MISSION</h2>
-                <ul>
-                    <li>To report, document and broadcast on issues of local concern, ranging from economic and
-                        governance to social and cultural issues.</li><br>
-                    <li>Create awareness of social challenges, document cultural diversity and social practices, report
-                        on the physical environment in which people live (rivers, floods, islands, farms etc.)</li><br>
-                    <li>Tap and showcase local talent to the listening public, connecting entertainment, competition and
-                        information</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col txt-col">
-                <h2>OUR GOALS</h2>
-                <ul>
-                    <li>Empowering people by making them better aware of the World around them and the issues which
-                        affect them directly and indirectly.</li><br>
-                    <li>Enabling their concerns to be shared over air, bringing it to the notice of
-                        Government/Administration.</li><br>
-                    <li>Providing Government with information and opportunities to address these challenges and
-                        democratic manner.</li>
-                </ul>
-            </div>
-            <div class="col img-col">
-                <img src="assets/gallery/g4.jpg" alt="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col img-col">
-                <img src="assets/gallery/g4.jpg" alt="">
-            </div>
-            <div class="col txt-col">
-                <h2>OUR VISION</h2>
-                <ul>
-                    <p>Our vision is to build a network of communities who will report, inform and broadcast in their
-                        local languages/dialects using different medium of community media including community radio
-                        platform for their own development process in a sustainable manner. Through this effort, BCRS
-                        will feed into a process of integrated planning and development based on substantive local
-                        information in the districts-reflecting the real meaning of ‘inclusive’ growth.</p>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col txt-col">
-                <h2>OUR LOCATION</h2>
-                <p>We are lying in between Dibrugarh & Dhemaji District on the southern bank of the Brahmaputra River.
-                    Dibrugarh is home to sprawling tea gardens; both districts have a significant stretch of Brahmaputra
-                    River, with island villages as well as a range of ethnic groups, cultures and languages among Upper
-                    Assam Districts. This economic and cultural diversity and presence of vulnerable communities
-                    including tea garden villages & riverine communities made Dibrugarh and Dhemaji an important from
-                    the point of socio-economic development and dissemination of information to those who need to be
-                    involved in the ‘development’ process. It was felt that by creating a platform to enable communities
-                    to exchange ideas and thoughts, Radio Brahmaputra could minimize the existing sense of isolation and
-                    involve in participatory communication.</p>
-            </div>
-            <div class="col">
-                <div class="mapouter1">
+        <?php
+        while($count<=4){
+            $fdata = mysqli_fetch_array($fetch);
+            if($count%2==1){?>
+                <div class="row">
+                    <div class="col txt-col">
+                        <p>
+                            <?php echo"$fdata[section]"; ?>
+                        </p><br>
+                    </div>
+                    <div class="col img-col">
+                        <img src="assets/about/<?php echo"$fdata[image]" ?>" alt="">
+                    </div>
+                </div>
+            <?php }else{?>
+                <div class="row">
+                    <div class="col img-col">
+                            <img src="assets/gallery/g3.jpg" alt="">
+                    </div>
+                    <div class="col txt-col">
+                            <p>
+                                <?php echo"$fdata[section]"; ?>
+                            </p><br>
+                    </div>
+                </div>
+        <?php } $count++; }?>
+                <div class="row">
+                    <div class="col txt-col">
+                            <p>
+                                <?php echo"$location[section]"; ?>
+                            </p><br>
+                    </div>
+                    <div class="mapouter1">
                     <div class="gmap_canvas1"><iframe width="650" height="500" id="gmap_canvas1"
                             src="https://maps.google.com/maps?q=Radio%20Brahmaputra,%20Dibrugarh&t=&z=17&ie=UTF8&iwloc=&output=embed"
                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
@@ -132,33 +94,7 @@
                         </style>
                     </div>
                 </div>
-                <div class="mapouter">
-                    <div class="gmap_canvas"><iframe width="320" height="450" id="gmap_canvas"
-                            src="https://maps.google.com/maps?q=Radio%20Brahmaputra&t=&z=17&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>
-                        <style>
-                            .mapouter {
-                                position: relative;
-                                text-align: right;
-                                height: 450px;
-                                width: 320px;
-                            }
-                        </style><a href="https://www.embedgooglemap.net">embed google maps on website</a>
-                        <style>
-                            .gmap_canvas {
-                                overflow: hidden;
-                                background: none !important;
-                                height: 450px;
-                                width: 320px;
-                            }
-                        </style>
-                    </div>
                 </div>
-            </div>
-
-
-        </div>
-
     </main>
 
 

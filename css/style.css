@@ -69,7 +69,7 @@
     background-color: aliceblue;
     width: 170px;
     border-radius: 5px;
-    margin-right: 30px;
+    margin-right: 10px;
     margin-top: 30px;
     position: relative;
     box-shadow: 0px 0px 4px 2px gray;
@@ -151,6 +151,7 @@
 
 .audio-card {
     height: 200px;
+    width: 250px;
     box-shadow: 2px 2px 4px 2px grey;
     border-radius: 4px;
     margin: 4px;
@@ -163,7 +164,8 @@
 
 }
 
-.audio-thumbnail {
+.audio-thumbnail,
+iframe {
     width: 100%;
     height: 100%;
     border-radius: 4px;
@@ -173,56 +175,6 @@
     filter: brightness(40%) blur(2px);
 
 }
-
-.popup {
-    position: fixed;
-    top: 100px;
-    left: 35%;
-    width: 500px;
-    height: 600px;
-    margin: auto;
-    background-position: center;
-    background-size: cover;
-    visibility: hidden;
-    z-index: 1;
-    transform: scale(.1);
-    transition: transform .5s ease;
-}
-
-.popup-open {
-    visibility: visible;
-    transform: scale(1);
-}
-
-.popup-txt {
-    position: fixed;
-    top: 120px;
-    width: inherit;
-    height: 0px;
-    margin: 0 auto;
-    z-index: 1;
-    background: rgb(246, 138, 138);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.popup-txt button {
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
-    opacity: .5;
-    border: none;
-    border-radius: 10px;
-
-}
-
-.popup img {
-    height: inherit;
-    width: inherit;
-    filter: blur(1px);
-}
-
 
 
 
@@ -245,6 +197,8 @@
 
 .content {
     margin: 10px 0;
+    font-weight: 100;
+    text-align: justify;
 }
 
 .support-btn {
@@ -302,8 +256,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 10px;
-    border-radius: 2px;
+    padding: 0 10px 20px 10px;
+    border-radius: 10px;
     box-shadow: 1px 1px 10px gray;
     transition: .5s ease;
     max-height: 400px;
@@ -316,10 +270,11 @@
 
 
 .box img {
-    width: 300px;
+    width: 100%;
     max-width: 80%;
     height: 150px;
     margin: 20px 0px;
+    border-radius: 10px 10px 0 0;
     /* max-width: 80vw; */
 }
 
@@ -393,20 +348,48 @@
 
 /* Testimonials Section */
 
+/* .line {
+    width: 100%;
+    height: 10px;
+    background: #000;
+} */
+
+.line img {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
 #testimonials {
     width: 100%;
 }
 
 .test-cont {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .tcard {
-    width: 400px;
+    max-width: 300px;
+    min-width: 200px;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 252, 248);
     margin: 30px;
+    padding: 20px;
+    border-radius: 20px 0 20px 0;
+    box-shadow: 0 0 6px 1px;
+}
+
+.tcard img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 .tcard span {
@@ -414,7 +397,19 @@
     width: 80%;
 }
 
-.author {}
+.author {
+    margin-top: 10px;
+    width: 100%;
+    text-align: end;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.author img {
+    width: 10px;
+    height: 10px;
+}
 
 
 

@@ -54,9 +54,9 @@ $slno = 0;
                         <td><?php echo"$slno"; ?></td>
                         <td><h2><?php echo"$fdata[title]"; ?></h2></td>
                         <td><span><?php echo"$fdata[description]"; ?></span></td>
-                        <td><?php echo"$fdata[content]"; ?></td>
+                        <td id="content"><?php echo"$fdata[content]"; ?></td>
 
-                        <td><img src="../../../assets/blogs/t.jpg" alt="#"></td>
+                        <td><img class="image" src="../../../assets/blogs/<?php echo"$fdata[image]"; ?>" alt="#"></td>
 
                         <td>
                             <div class="btns">

@@ -18,6 +18,7 @@ $location = mysqli_fetch_array($lquery);
 $count = 1;
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 

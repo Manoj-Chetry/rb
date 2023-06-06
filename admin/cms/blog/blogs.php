@@ -13,9 +13,6 @@ $iquery = mysqli_query($con,$query);
 
 $count = mysqli_num_rows($iquery);
 
-
-
-
 ?>
 
 

@@ -1,13 +1,11 @@
 <?php
 
-error_reporting(0);
 include "php/connection.php";
 
 $query = "select * from blogs order by id desc";
 $iquery = mysqli_query($con,$query);
 
 $count = 3;
-
 
 ?>
 <!DOCTYPE html>
@@ -29,17 +27,8 @@ $count = 3;
 <body>
     <?php require "components/nav.php"; ?>
 
-
     <?php require "components/sticky.php" ?>
 
-    <div class="popup" id="popup">
-        <div class="popup-txt">
-            <h1>Audio</h1>
-            <p>Playing now audio file!</p>
-            <button onclick="closepop()">Close</button>
-        </div>
-        <img src="assets/podcasts/p1.avif" alt="">
-    </div>
 
     <div class="container" id="container">
         <main>
@@ -77,6 +66,7 @@ $count = 3;
                     $p = mysqli_num_rows($fsql);
                     while($p>0){
                         $fget = mysqli_fetch_array($fsql);?>
+                        <a href="player.php?id=<?php echo "$fget[id]"; ?>">
                         <div class="acard">
                             <div class="top"></div>
                             <div class="bottom"></div>
@@ -87,6 +77,7 @@ $count = 3;
                                 <img src="assets/images/play-button.png" alt="">
                             </div>
                         </div>
+                        </a>
                     <?php $p--; }
                 ?>
                 
@@ -99,42 +90,17 @@ $count = 3;
                 <a href="video.php" class="view-link">View All</a>
             </div>
             <div class="thumb-cont">
-                <div class="audio-card">
-                    <iframe class="audio-thumbnail" width="560" height="315"
-                        src="https://www.youtube.com/embed/zU2l4HKT0nc" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+            <?php
+                    $vsql = "select * from video order by id desc";
+                    $vfetch = mysqli_query($con, $vsql);
+                    $vdata = 6;
+                    while($vdata>0){
+                        $vget = mysqli_fetch_array($vfetch);?>
+                        <div class="audio-card">
+                    <?php echo"$vget[link]" ?>
                 </div>
-                <div class="audio-card">
-                    <iframe class="audio-thumbnail" width="560" height="315"
-                        src="https://www.youtube.com/embed/xxkDLvS5MTY" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="audio-card">
-                    <iframe class="audio-thumbnail" width="560" height="315"
-                        src="https://www.youtube.com/embed/hVEZYEYctSc" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="audio-card">
-                    <iframe class="audio-thumbnail" width="560" height="315"
-                        src="https://www.youtube.com/embed/iA1ndcZls4Y" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="audio-card">
-                    <iframe class="audio-thumbnail" width="560" height="315"
-                        src="https://www.youtube.com/embed/M-dutzdupbs" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="audio-card">
-                    <iframe class="audio-thumbnail" width="560" height="315"
-                        src="https://www.youtube.com/embed/fqF9M92jzUo" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
+                    <?php $vdata--; }?>
+                
             </div>
         </section>
 
@@ -156,37 +122,23 @@ $count = 3;
                 <a href="#" class="view-link">View All</a>
             </div>
             <div class="blog-container">
-                <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 1">
-                    <h2>Title</h2>
-                    <span class="blog-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                        voluptatesveniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                        provident    
-                    </span>
-                    <a class="more-link" href="#">(More)</a>
-                </div>
-                <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 1">
-                    <h2>Title</h2>
-                    <span class="blog-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                        voluptatesveniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                        provident    
-                    </span>
-                    <a class="more-link" href="#">(More)</a>
-                </div>
-                <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 1">
-                    <h2>Title</h2>
-                    <span class="blog-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repudiandae, id tempore vero
-                        voluptatesveniam tempora esse repellat repellendus eaque perspiciatis laudantium error veritatis
-                        provident    
-                    </span>
-                    <a class="more-link" href="#">(More)</a>
-                </div>
+            
+                <?php
+                $wquery = "select * from story order by id desc";
+                $wfetch = mysqli_query($con,$wquery);
                 
+                $c = 3;
+                while($c>0){?>
+                <?php $wdata = mysqli_fetch_assoc($wfetch); ?>
+                <div class="box">
+                    <img src="assets/story/<?php echo"$wdata[image]"; ?>" alt="Image 1">
+                    <h2><?php echo"$wdata[title]"; ?></h2>
+                    <span class="blog-text">
+                        <?php echo"$wdata[description]"; ?>
+                    </span>
+                    <a class="edit" href="read-story.php?id=<?php echo"$wdata[id]"; ?>">Read More</a>
+                </div>
+                <?php $c--; } ?>
             </div>
         </section>
 
@@ -200,13 +152,13 @@ $count = 3;
                 while($count>0){?>
                 <?php $fdata = mysqli_fetch_assoc($iquery); ?>
                 <div class="box">
-                    <img src="assets/blogs/t.jpg" alt="Image 1">
+                    <img src="assets/blogs/<?php echo"$fdata[image]";?>" alt="Image 1">
                     <h2><?php echo"$fdata[title]"; ?></h2>
                     <span class="blog-text">
                         <?php echo"$fdata[description]"; ?>    
                     </span>
                     <div class="btns">
-                        <a class="edit" href="#">Read More</a>
+                        <a class="edit" href="read-blog.php?id=<?php echo "$fdata[id]"; ?>">Read More</a>
                     </div>
                 </div>
                 <?php $count--; }
@@ -233,26 +185,30 @@ $count = 3;
             <div class="lead">
                 <h1 class="title">Testimonials</h1>
             </div>
+            <div class="line">
+                <img src="assets/icons/quote.png" alt="">
+            </div>
             <div class="test-cont">
                 <span class="tcard">
-                    <img src="assets/logo/logo.png" alt="">
+                    <img src="assets/icons/t3.jpg" alt="">
                     <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
 
                     <span class="author">John Doe</span>
                 </span>
                 <span class="tcard">
-                    <img src="assets/logo/logo.png" alt="">
+                    <img src="assets/icons/t1.jpg" alt="">
                     <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
 
                     <span class="author">John Doe</span>
                 </span>
                 <span class="tcard">
-                    <img src="assets/logo/logo.png" alt="">
+                    <img src="assets/icons/t2.jpg" alt="">
                     <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
 
-                    <span class="author">John Doe</span>
+                    <span class="author"><img src="assets/icons/star.png">John Doe</span>
                 </span>
             </div>
+            <div class="line"></div>
 
         </section>
 

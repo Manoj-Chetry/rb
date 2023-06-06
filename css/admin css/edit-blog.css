@@ -33,10 +33,22 @@ thead {
 td {
     width: 200px;
     max-width: 200px;
-    height: 10px;
+    height: 300px;
+    max-height: 400px;
+    overflow: hidden;
     text-align: center;
     vertical-align: middle;
     background-color: antiquewhite;
+}
+
+#content {
+    height: 400px;
+    overflow: hidden;
+}
+
+.image {
+    height: 100px;
+    width: 100px;
 }
 
 .btns {
@@ -62,4 +74,6 @@ td {
 .delete {
     background-color: #CD192A;
     padding: 10px;
+    color: white;
+    cursor: pointer;
 }

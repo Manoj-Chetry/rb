@@ -34,79 +34,32 @@ include 'php/connection.php';
                 </a>
             </div>
             <div class="container">
-                <a href="player.html">
-                    <div class="card">
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="center">
-                            <img src="assets/images/album.jpg" alt="">
-                        </div>
-                        <div class="play">
-                            <img src="assets/images/play-button.png" alt="">
-                        </div>
-                    </div>
-                </a>
+            <?php
+                $query = "select * from audio order by id desc";
+                $fquery = mysqli_query($con,$query);
 
-                <a href="player.html">
+                $count = mysqli_num_rows($fquery);
+                
+                while($count>0){
+                    $fetch = mysqli_fetch_assoc($fquery);
+                    ?>
+                <a href="player.php?id=<?php echo"$fetch[id]"; ?>" >
                     <div class="card">
                         <div class="top"></div>
                         <div class="bottom"></div>
                         <div class="center">
-                            <img src="assets/images/a1.jpg" alt="">
+                            <img src="assets/images/<?php echo"$fetch[cover]"; ?>" alt="">
                         </div>
                         <div class="play">
-                            <img src="assets/images/play-button.png" alt="">
+                            <img src="assets/images/play.png" alt="">
                         </div>
                     </div>
                 </a>
-                <a href="player.html">
-                    <div class="card">
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="center">
-                            <img src="assets/images/a2.jpg" alt="">
-                        </div>
-                        <div class="play">
-                            <img src="assets/images/play-button.png" alt="">
-                        </div>
-                    </div>
-                </a>
-                <a href="player.html">
-                    <div class="card">
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="center">
-                            <img src="assets/images/a3.webp" alt="">
-                        </div>
-                        <div class="play">
-                            <img src="assets/images/play-button.png" alt="">
-                        </div>
-                    </div>
-                </a>
-                <a href="player.html">
-                    <div class="card">
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="center">
-                            <img src="assets/images/a4.jpg" alt="">
-                        </div>
-                        <div class="play">
-                            <img src="assets/images/play-button.png" alt="">
-                        </div>
-                    </div>
-                </a>
-                <a href="player.html">
-                    <div class="card">
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="center">
-                            <img src="assets/images/a4.jpg" alt="">
-                        </div>
-                        <div class="play">
-                            <img src="assets/images/play-button.png" alt="">
-                        </div>
-                    </div>
-                </a>
+                <?php 
+                $count-- ;}
+                ?>
+
+               
 
 
             </div>
@@ -201,34 +154,66 @@ include 'php/connection.php';
                     <div class="top"></div>
                     <div class="bottom"></div>
                 </div> -->
-                <?php
-                $query = "select * from audio order by id desc";
-                $fquery = mysqli_query($con,$query);
-
-                $count = mysqli_num_rows($fquery);
-                
-                while($count>0){
-                    $fetch = mysqli_fetch_assoc($fquery);
-                    ?>
-
-                <script>
-                    console.log("1")
-                </script>
-                <a href="player.php?id=<?php echo"$fetch[id]"; ?>" >
+                <a href="player.html">
                     <div class="card">
                         <div class="top"></div>
                         <div class="bottom"></div>
                         <div class="center">
-                            <img src="assets/images/<?php echo"$fetch[cover]"; ?>" alt="">
+                            <img src="assets/images/a1.jpg" alt="">
                         </div>
                         <div class="play">
-                            <img src="assets/images/play.png" alt="">
+                            <img src="assets/images/play-button.png" alt="">
                         </div>
                     </div>
                 </a>
-                <?php 
-                $count-- ;}
-                ?>
+                <a href="player.html">
+                    <div class="card">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="center">
+                            <img src="assets/images/a2.jpg" alt="">
+                        </div>
+                        <div class="play">
+                            <img src="assets/images/play-button.png" alt="">
+                        </div>
+                    </div>
+                </a>
+                <a href="player.html">
+                    <div class="card">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="center">
+                            <img src="assets/images/a3.webp" alt="">
+                        </div>
+                        <div class="play">
+                            <img src="assets/images/play-button.png" alt="">
+                        </div>
+                    </div>
+                </a>
+                <a href="player.html">
+                    <div class="card">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="center">
+                            <img src="assets/images/a4.jpg" alt="">
+                        </div>
+                        <div class="play">
+                            <img src="assets/images/play-button.png" alt="">
+                        </div>
+                    </div>
+                </a>
+                <a href="player.html">
+                    <div class="card">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="center">
+                            <img src="assets/images/a4.jpg" alt="">
+                        </div>
+                        <div class="play">
+                            <img src="assets/images/play-button.png" alt="">
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
 

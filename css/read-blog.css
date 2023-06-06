@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(226, 235, 243);
+    font-family: Oswald, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.container {
+    width: 90vw;
+    height: fit-content;
+    margin: 80px auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+nav {
+    background-color: red;
+    height: 80px;
+    width: 100%;
+}
+
+main {
+    width: 70%;
+    height: fit-content;
+}
+
+.img img {
+    animation: fade 4s ease;
+    width: 100%;
+    height: 400px;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.title {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    animation: title-in 3s 0s ease;
+}
+
+.title h1 {
+    font-size: 50px;
+}
+
+@keyframes title-in {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 20%;
+    }
+}
+
+.des {
+    animation: fade 4s ease;
+}
+
+.content {
+    animation: fade 4s ease;
+    margin-top: 30px;
+    text-align: start;
+}
+
+.content p {
+    font-weight: 100;
+}
+
+
+aside {
+    width: 28%;
+    height: fit-content;
+}
+
+aside h2 {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    background-color: rgb(220, 239, 255);
+}
+
+.blog-card {
+    height: 300px;
+    width: 100%;
+    margin: 0px auto 40px auto;
+    background-color: white;
+}
+
+.blog-card img {
+    height: 100%;
+    width: 100%;
+    transition: all .5s ease-out;
+    cursor: pointer;
+    position: relative;
+    top: -10;
+    filter: blur(.5px);
+}
+
+
+
+.pop {
+    position: relative;
+    background-color: aliceblue;
+    opacity: .8;
+    text-align: center;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+
+}
+
+.pop:hover {
+    animation: pop 1s ease-in-out;
+    opacity: .7;
+}
+
+.bottom {
+    bottom: 101.5%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.bottom h4 {
+    padding-top: 40px;
+}
+
+.desc {
+    text-align: center;
+    position: relative;
+    bottom: 150%;
+    color: rgba(255, 255, 255, 0.727);
+}
+
+@keyframes pop {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: .7;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .title {
+        left: 10%;
+    }
+
+    aside {
+        width: 100%;
+        margin: 30px auto;
+        text-align: center;
+    }
+
+    .blog-card {
+        width: 400px;
+    }
+}
+
+nav {
+    z-index: 999;
+}

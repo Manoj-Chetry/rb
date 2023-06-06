@@ -111,8 +111,8 @@ $img = $fdata['img'];
                     <a href="cms/blog/edit-blog.php">
                         <div class="col">Edit Blogs</div>
                     </a>
-                    <a href="cms/contact/edit-contact.php">
-                        <div class="col">Edit Contact Us</div>
+                    <a href="cms/story/edit-story.php">
+                        <div class="col">Edit Work/Stories</div>
                     </a>
                 </div>
             </section>

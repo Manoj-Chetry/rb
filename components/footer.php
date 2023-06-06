@@ -1,3 +1,11 @@
+<?php
+$query = "select * from logo where id = '1'";
+$fquery = mysqli_query($con, $query);
+
+$fdata = mysqli_fetch_array($fquery);
+
+$img = $fdata['img']; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -442,13 +450,13 @@ textarea {
                 <div class="footer-col">
                     <h4>Out Networks</h4>
                     <ul>
-                        <li><a href="#">About us</a></li>
+                        <li><a href="about.php">About us</a></li>
                         <li><a href="#">Support Us</a></li>
                         <li><a href="#">Photos</a></li>
-                        <li><a href="#">videos</a></li>
+                        <li><a href="video.php">videos</a></li>
                         <li><a href="#">Community videos</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Our Works/Stories</a></li>
+                        <li><a href="blogs.php">Blogs</a></li>
+                        <li><a href="story.php">Our Works/Stories</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -464,11 +472,11 @@ textarea {
                 <div class="footer-col">
                     <h4>follow us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/Radiobrahmaputra90.4FM"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/RadioBrahmaput1"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/radiobrahmaputra90.4fm/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@RadioBrahmaputraCRS"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/09954489439"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -487,7 +495,7 @@ textarea {
             <div class="modal-body">
                 <div class="formcontainer">
                     <div class="headdiv">
-                        <img src="../assets/logo/logo.png" alt="logo" class="center">
+                        <img src="assets/logo/<?php echo$img ?>" alt="logo" class="center">
                         <h2>Volunteer form</h2>
                         <p>Enter Your Details</p>
                     </div>
@@ -593,7 +601,7 @@ textarea {
             <div class="modal-body">
                 <div class="formcontainer">
                     <div class="headdiv">
-                        <img src="../assets/logo/logo.png" alt="logo" class="center">
+                        <img src="assets/logo/<?php echo$img ?>" alt="logo" class="center">
                         <h2>Internship form</h2>
                         <p>Enter Your Details</p>
                     </div>
@@ -693,7 +701,7 @@ textarea {
             <div class="modal-body">
                 <div class="formcontainer">
                     <div class="headdiv">
-                        <img src="../assets/logo/logo.png" alt="logo" class="center">
+                        <img src="assets/logo/<?php echo$img ?>" alt="logo" class="center">
                         <h2>Resource Person</h2>
                         <p>Enter Your Details</p>
                     </div>

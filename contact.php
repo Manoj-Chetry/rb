@@ -1,3 +1,40 @@
+<?php
+  $insert = false;
+  if(isset($_POST['contact-message'])){
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "forms";
+  
+    $con = mysqli_connect($server, $username, $password, $db);
+  
+    if(!$con){
+        die("connection to this database failed due to" . mysqli_connect_error());
+    }
+  
+    // echo "Success connecting to the db"; 
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+
+
+    $sql = "INSERT INTO contactUS (`name`,`email`,`message`) VALUES ('$name','$email','$message');";
+
+    $result = mysqli_query($con, $sql);
+
+      if($result){
+      $insert = true;
+      header("Location:contact.php");
+    }
+    else{
+      echo "ERROR: $sql <br> $con->error";
+      header("Location:contact.php");
+    }
+    $con->close();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +55,8 @@
 
     <?php require "components/sticky.php" ?>
     
-        <div id="head">
-            <img src="assets/icons/operator.png" id="head_img" alt="">
+        <div id="head" style="display: flex; align-items: center; margin: 20px auto 0 auto; width: 85vw;">
+            <img src="assets/icons/operator.png" id="head_img" style="width: 50px; margin-right: 20px;">
             <h1>Contact Us</h1>
         </div>
     <main class="contact">
@@ -56,22 +93,22 @@
                 </div>
             </div>
             <div class="contactForm">
-                <form action="">
+                <form method="post">
                     <h2>Send Message</h2>
                     <div class="inputBox">
-                        <input type="text" name="" required>
+                        <input type="text" name="name" required>
                         <span>Full Name</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="" required>
+                        <input type="text" name="email" required>
                         <span>Email</span>
                     </div>
                     <div class="inputBox">
-                        <textarea name="" id="" cols="30" rows="10" required></textarea>
+                        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
                         <span>Type your Message</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" name="" value="Send">
+                        <input type="submit" name="submit" value="Send">
                     </div>
                 </form>
             </div>
