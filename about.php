@@ -36,7 +36,8 @@ $count = 1;
 
 
     <main class="container">
-        <div class="header">
+        <div id="head">
+            <img src="assets/icons/info.png" id="head_img" style="width: 50px; margin-right: 20px;">
             <h1>About-Us</h1>
         </div>
         <?php

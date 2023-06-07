@@ -29,7 +29,7 @@ include "php/connection.php";
         <a href="https://www.instagram.com/radiobrahmaputra90.4fm/" class="sticky_links">
             <img src="assets/logo/social media/instagram.png" alt="">
         </a>
-        <a href="https://wa.me/09954489439" class="sticky_links">
+        <a href="https://wa.me/+919954489439" class="sticky_links">
             <img src="assets/logo/social media/whatsapp.png" alt="">
         </a>
         <a href="https://www.youtube.com/@RadioBrahmaputraCRS" class="sticky_links">

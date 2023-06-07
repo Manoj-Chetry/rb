@@ -113,7 +113,7 @@ $count = 3;
             <p class="content">
                 <?php echo"$fetch[about]"; ?> 
             </p>
-            <a href="#" class="support-btn">Support-Us</a>
+            <a href="support.php" class="support-btn">Support-Us</a>
         </section>
 
         <section class="work">
