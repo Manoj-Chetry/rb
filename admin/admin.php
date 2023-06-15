@@ -45,7 +45,7 @@ $img = $fdata['img'];
                         <li id="cms-drop"><span>CMS</span> <span>&or;</span></li>
                     </button>
 
-                    <a href="../php/logout.php" id="logout-btn">Logout</a>
+                    <a href="../php/logout.php"> <button id="logout-btn">Logout</button></a>
                 </ul>
             </div>
         </aside>
@@ -101,7 +101,7 @@ $img = $fdata['img'];
                     <a href="cms/about/edit-about.php">
                         <div class="col">Edit About</div>
                     </a>
-                    <a href="cms/audio/add.php">
+                    <a href="cms/audio/edit-audio.php">
                         <div class="col">Edit Podcast</div>
                     </a>
                     <a href="cms/video/edit-video.php">

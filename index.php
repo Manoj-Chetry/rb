@@ -63,7 +63,7 @@ $count = 3;
                 <?php
                     $sql = "select * from audio order by id desc";
                     $fsql = mysqli_query($con, $sql);
-                    $p = mysqli_num_rows($fsql);
+                    $p = 6;
                     while($p>0){
                         $fget = mysqli_fetch_array($fsql);?>
                         <a href="player.php?id=<?php echo "$fget[id]"; ?>">
@@ -116,10 +116,12 @@ $count = 3;
             <a href="support.php" class="support-btn">Support-Us</a>
         </section>
 
+        <section class="addvertisements"></section>
+
         <section class="work">
             <div class="lead">
                 <h1 class="title">Our Works/Stories</h1>
-                <a href="#" class="view-link">View All</a>
+                <a href="story.php" class="view-link">View All</a>
             </div>
             <div class="blog-container">
             
@@ -132,11 +134,13 @@ $count = 3;
                 <?php $wdata = mysqli_fetch_assoc($wfetch); ?>
                 <div class="box">
                     <img src="assets/story/<?php echo"$wdata[image]"; ?>" alt="Image 1">
-                    <h2><?php echo"$wdata[title]"; ?></h2>
-                    <span class="blog-text">
-                        <?php echo"$wdata[description]"; ?>
+                    <div class="bottom">
+                    <a href="read-story.php?id=<?php echo"$wdata[id]"; ?>">Read More</a>
+                    <span>
+                        <?php echo"$wdata[title]"; ?>
                     </span>
-                    <a class="edit" href="read-story.php?id=<?php echo"$wdata[id]"; ?>">Read More</a>
+                    </div>
+                    
                 </div>
                 <?php $c--; } ?>
             </div>
@@ -152,18 +156,18 @@ $count = 3;
                 while($count>0){?>
                 <?php $fdata = mysqli_fetch_assoc($iquery); ?>
                 <div class="box">
-                    <img src="assets/blogs/<?php echo"$fdata[image]";?>" alt="Image 1">
-                    <h2><?php echo"$fdata[title]"; ?></h2>
-                    <span class="blog-text">
-                        <?php echo"$fdata[description]"; ?>    
-                    </span>
-                    <div class="btns">
-                        <a class="edit" href="read-blog.php?id=<?php echo "$fdata[id]"; ?>">Read More</a>
+                    <img src="assets/blogs/<?php echo"$fdata[image]";?>" alt="Image">
+                    <div class="bottom">
+                        <a href="#">
+                            Read Blog
+                        </a>
+                        <span>
+                        <?php echo"$fdata[title]"; ?>
+                        </span>
                     </div>
                 </div>
                 <?php $count--; }
                 ?>
-                
             </div>
         </section>
 

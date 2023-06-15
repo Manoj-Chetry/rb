@@ -23,12 +23,11 @@ $slno = 0;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/admin css/edit-blog.css">
-    <title>Blogs</title>
+    <title>Podcasts</title>
 </head>
 <body>
     <h1 id="header">Podcasts - Update and Delete</h1>
 
-    <a class="delete" href="audio.php">Podcasts</a>
     <a class="delete" href="add.php">Add Podcast</a>
 
     <main class="container">
@@ -59,13 +58,13 @@ $slno = 0;
 
                         <td>
                             <div class="btns">
-                                <a class="edit" href="editaudio.php?id=<?php echo"$fdata[id]"; ?>">Edit</a>
+                                <!-- <a class="edit" href="editaudio.php?id=<?php //echo"$fdata[id]"; ?>">Edit</a> -->
                                 <!-- <?php 
                                     if($fdata['publish']==true){?>
-                                        <a class="publish" href="publish.php?id=<?php echo"$fdata[id]"; ?>">Un-Publish</a>
+                                        <a class="publish" href="publish.php?id=<?php //echo"$fdata[id]"; ?>">Un-Publish</a>
                                 <?php }
                                     else{?>
-                                        <a class="publish" href="publish.php?id=<?php echo"$fdata[id]"; ?>">Publish</a>
+                                        <a class="publish" href="publish.php?id=<?php //echo"$fdata[id]"; ?>">Publish</a>
                                 <?php   }
                                 ?> -->
 

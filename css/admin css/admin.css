@@ -68,12 +68,17 @@ aside {
 }
 
 #logout-btn {
-    width: 300px;
+    width: 100%;
     text-decoration: none;
     text-align: center;
     color: white;
     height: 40px;
     background-color: #CD192A;
+}
+
+#logout-btn a {
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -182,12 +187,12 @@ main {
 
 
 .col {
-    width: 100px;
+    width: fit-content;
     height: 100px;
-    background: #000;
+    background: #522929;
     color: white;
     margin: 20px;
-    border-radius: 75px;
+    /* border-radius: 75px; */
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
@@ -195,4 +200,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.col a {
+    text-decoration: none;
 }

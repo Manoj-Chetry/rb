@@ -22,16 +22,9 @@ $count = mysqli_num_rows($iquery);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/logo/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/audio.css">
     <link rel="stylesheet" href="css/utility.css">
     <title>Videos</title>
-    <style>
-        iframe{
-            width: 100%;
-            height: 80%;
-        }
-    </style>
 </head>
 
 <body>
@@ -43,22 +36,26 @@ $count = mysqli_num_rows($iquery);
 
 
 
-    <main class="container">
-    <div id="head">
-            <img src="assets/icons/video.png" id="head_img" alt="">
+    
+
+    <main>
+        <div id="head">
+            <img src="assets/icons/video.png" alt="">
             <h1>Videos</h1>
         </div>
-        <div class="card-cont">
-
-        <?php 
-        if($count){
-            while($fdata = mysqli_fetch_assoc($iquery)){
-                if($fdata['publish'] == true){?>
-                    <div class="card">
-                        <?php echo"$fdata[link]"; ?>
-                        <span><?php echo"$fdata[description]"; ?></span>
-                    </div>
-          <?php  }
+        <div class="container">
+            <?php 
+            if($count){
+                while($fdata = mysqli_fetch_assoc($iquery)){
+                    if($fdata['publish'] == true){?>
+                        <div class="card">
+                            <?php echo"$fdata[link]"; ?>
+                            <div class="card-btm">
+                                <div class="btn-log">MOST WATCHED</div>
+                                <a href=""><?php echo"$fdata[description]"; ?></a>
+                            </div>
+                        </div>
+                        <?php  }
             $count--; }
         }
         ?>

@@ -133,7 +133,7 @@
     margin-bottom: 30px;
     height: 40px;
     width: 100%;
-    padding: 0 10px;
+    padding: 10px 15px;
     border-radius: 23px;
     border: 1px solid #ccc;
     outline: none;
@@ -142,8 +142,8 @@
 .contactForm .inputBox textarea {
     height: 125px;
     width: 100%;
-    padding: 0 10px;
-    border-radius: 23px;
+    padding: 10px 10px;
+    border-radius: 4px;
     border: 1px solid #ccc;
     outline: none;
 }
@@ -171,8 +171,8 @@
 .contactForm .inputBox input[type="submit"] {
     margin: 5px;
     width: 100px;
-    background: blue;
-    color: black;
+    background: rgb(47, 47, 162);
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
     padding: 10px;

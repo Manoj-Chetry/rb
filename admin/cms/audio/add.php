@@ -20,6 +20,7 @@ $count = mysqli_num_rows($fquery);
 <body>
     <main>
         <h1>Add Audio/Podcasts</h1>
+        <a href="edit-audio.php">Manage Podcasts</a>
         <form method="post" enctype="multipart/form-data">
             <label for="audio">Audio File</label>
             <input type="file" name="audio" id="audio" required accept=".mp3">

@@ -57,7 +57,7 @@ $count = 1;
             <?php }else{?>
                 <div class="row">
                     <div class="col img-col">
-                            <img src="assets/gallery/g3.jpg" alt="">
+                            <img src="assets/about/<?php echo"$fdata[image]"; ?>" alt="">
                     </div>
                     <div class="col txt-col">
                             <p>

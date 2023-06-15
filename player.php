@@ -37,10 +37,12 @@ $fetch = mysqli_fetch_assoc($fquery);
             <div class="image">
                 <img src="assets/images/<?php echo"$fetch[cover]"; ?>" alt="">
             </div>
-            <span><?php echo"$fetch[audio]";?></span>
-            <audio controls autoplay>
-                <source src="audio/<?php echo"$fetch[audio]";?>" type="audio/mpeg">
-            </audio>
+            <div class="right">
+                <span><?php echo"$fetch[audio]";?></span>
+                <audio controls autoplay>
+                    <source src="audio/<?php echo"$fetch[audio]";?>" type="audio/mpeg">
+                </audio>
+            </div>
         </div>
 
         <section>
@@ -56,11 +58,41 @@ $fetch = mysqli_fetch_assoc($fquery);
                     <tr>
                         <td><a href="player.php?id=<?php echo"$fdata[id]"; ?>"><?php echo"$count"; $count++;?>.</a></td>
                         <td class="title"><a href="player.php?id=<?php echo"$fdata[id]"; ?>"><?php echo"$fdata[Title]"; ?> </a></td>
-                        <td><a href="player.php?id=<?php echo"$fdata[id]"; ?>"><?php echo"$fdata[Description]"; ?></a></td>
+                        <!-- <td><a href="player.php?id=<?php echo"$fdata[id]"; ?>"><?php echo"$fdata[Description]"; ?></a></td> -->
                     </tr>
                     <?php }?>
                 </tbody>
             </table>
+        </section>
+        <section>
+            <div class="container">
+                <?php 
+                $sql = "select distinct playlist from audio";
+                $faud = mysqli_query($con, $sql);
+                $num = mysqli_num_rows($faud);
+                while($num>0){
+                    $data = mysqli_fetch_array($faud);
+                    $q = "select * from audio where playlist = '$data[playlist]'";
+                    $fq = mysqli_query($con, $q);
+                    $dp = mysqli_fetch_assoc($fq);?>
+                    <a href="player.php?id=<?php echo"$dp[id]"; ?>" >
+                    <div class="card">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="center">
+                            <img src="assets/images/<?php echo"$dp[cover]"; ?>" alt="">
+                        </div>
+                        <div class="play">
+                            <img src="assets/images/play.png" alt="">
+                        </div>
+                    </div>
+                </a>
+                <?php $num--;
+                }
+
+                
+                ?>
+            </div>
         </section>
     </main>
 </body>

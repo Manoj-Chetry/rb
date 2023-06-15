@@ -50,8 +50,9 @@ $count = 1;
                         <h3>Section <?php echo"$count"; ?></h3>
                         <label for="img<?php echo"$count"; ?>">Image<?php echo"$count"; ?></label>
                         <input type="file" name="img<?php echo"$count"; ?>" id="img<?php echo"$count"; ?>" accept=".jpg, .png, .jpeg">
-                        <input type="hidden" name="old_img<?php echo"$count"; ?>" id="old_img<?php echo"$count"; ?>" value="<?php echo"$fdata[image]"; ?>">
-                        <textarea name="about<?php echo"$count"; ?>" id="about<?php echo"$count"; ?>" cols="30" rows="10" required><?php echo"$fdata[section]"; ?></textarea>           
+                        <input type="text" name="old_img<?php echo"$count"; ?>" id="old_img<?php echo"$count"; ?>" value="<?php echo"$fdata[image]"; ?>">
+                        <textarea name="about<?php echo"$count"; ?>" id="about<?php echo"$count"; ?>" cols="30" rows="10" required><?php echo"$fdata[section]"; ?></textarea>      
+                             
                     </div>
             <?php   $count++; } $count=1;
             ?>
@@ -78,43 +79,57 @@ $count = 1;
                     $new4 = $_FILES['img4']['name'];
                     $old4 = $_POST['old_img4'];
 
+                    echo"$old1";
+
 
                     if($new1!=''){
-                        move_uploaded_file($_FILES['img1']['tmp_name'], "../../../assets/about/".$new1);
+                        $upload1 = move_uploaded_file($_FILES['img1']['tmp_name'], "../../../assets/about/".$new1);
                         unlink("../../../assets/about/".$old1);
+                        $update1 = $new1;
+                    }else{
+                        $update1 = $old1;
                     }
                     if($new2!=''){
-                        move_uploaded_file($_FILES['img2']['tmp_name'], "../../../assets/about/".$new2);
+                        $upload2 = move_uploaded_file($_FILES['img2']['tmp_name'], "../../../assets/about/".$new2);
                         unlink("../../../assets/about/".$old2);
+                        $update2 = $new2;
+                    }else{
+                        $update2 = $old2;
                     }
                     if($new3!=''){
-                        move_uploaded_file($_FILES['img3']['tmp_name'], "../../../assets/about/".$new3);
+                        $upload3 = move_uploaded_file($_FILES['img3']['tmp_name'], "../../../assets/about/".$new3);
                         unlink("../../../assets/about/".$old3);
+                        $update3 = $new3;
+                    }else{
+                        $update3 = $old3;
                     }
                     if($new4!=''){
-                        move_uploaded_file($_FILES['img4']['tmp_name'], "../../../assets/about/".$new4);
+                        $upload4 = move_uploaded_file($_FILES['img4']['tmp_name'], "../../../assets/about/".$new4);
                         unlink("../../../assets/about/".$old4);
+                        $update4 = $new4;
+                    }else{
+                        $update4 = $old4;
                     }
 
                    
-                    $query = "update about set section = '$about1', image = '$new1' where id = '1'";
+                    $query = "update about set section = '$about1', image = '$update1' where id = '1'";
                     $update1 = mysqli_query($con , $query);
-                    $query = "update about set section = '$about2', image = '$new2' where id = '2'";
+                    $query = "update about set section = '$about2', image = '$update2' where id = '2'";
                     $update2 = mysqli_query($con , $query);
-                    $query = "update about set section = '$about3',image = '$new3' where id = '3'";
+                    $query = "update about set section = '$about3',image = '$update3' where id = '3'";
                     $update3 = mysqli_query($con , $query);
-                    $query = "update about set section = '$about4', image = '$new3' where id = '4'";
+                    $query = "update about set section = '$about4', image = '$update4' where id = '4'";
                     $update4 = mysqli_query($con , $query);
-                    $query = "update about set section = '$about5', image = '$new4' where id = '5'";
+                    $query = "update about set section = '$about5', image = 'null' where id = '5'";
                     $update5 = mysqli_query($con , $query);
 
                     if($update1&&$update2&&$update3&&$update4&&$update5){
                         echo"
                         <script>
                             alert('Successfully Updated');
+                            location.replace('edit-about.php');
                         </script>
                         ";
-                        header('location: view.php');
                     }else{
                         echo"
                         <script>

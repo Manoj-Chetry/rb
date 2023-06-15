@@ -65,7 +65,7 @@ include 'php/connection.php';
             </div>
         </div>
 
-        <div class="section">
+        <!-- <div class="section">
             <div class="header_section">
                 <div class="group">
                     <div class="left-line"></div>
@@ -75,8 +75,30 @@ include 'php/connection.php';
                     <h4>View All</h4>
                 </a>
             </div>
-            <div class="container">
-                <div class="card">
+            <div class="container"> -->
+            <?php
+            // $sql = "select distinct playlist from audio";
+            // $asql = mysqli_query($con, $sql);
+            
+            // $calc = 6;
+
+            //if($calc>0){?>
+                <!-- <div class="card">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="pcenter">
+                        <img src="assets/images/p1.jpg" alt="">
+                    </div>
+                    <div class="play">
+                        <img src="assets/images/play.png" alt="">
+                    </div>
+                </div> -->
+            <?php //$calc--; }
+            ?>
+
+
+            
+                <!-- <div class="card">
                     <div class="top"></div>
                     <div class="bottom"></div>
                     <div class="pcenter">
@@ -150,11 +172,11 @@ include 'php/connection.php';
                 </a>
             </div>
             <div class="container">
-                <!-- <div class="card">
+                 <div class="card">
                     <div class="top"></div>
                     <div class="bottom"></div>
                 </div> -->
-                <a href="player.html">
+                <!-- <a href="player.html">
                     <div class="card">
                         <div class="top"></div>
                         <div class="bottom"></div>
@@ -214,8 +236,8 @@ include 'php/connection.php';
                         </div>
                     </div>
                 </a>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
 
     </main>
