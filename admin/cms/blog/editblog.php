@@ -33,7 +33,7 @@ include "../../../php/connection.php";
     <main class="container">
     <h1>Edit Blog</h1>
         <hr>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" value="<?php echo"$fdata[title]"; ?>" required>
 
@@ -61,7 +61,14 @@ include "../../../php/connection.php";
                     $desc = $_POST['description'];
                     $cont = $_POST['content'];
                     $auth = $_POST['author'];
-                    $pic = $_FILES['img']['name'];
+                    $old = $_POST['old1'];
+                    $img = $_FILES['img']['name'];
+
+                    if($img!=''){
+                        $pic = $img;
+                    }else{
+                        $pic = $old;
+                    }
 
                     $query = "update blogs set title='$title', description='$desc', content='$cont', author='$auth', image='$pic' where id ='$id'";
 
@@ -69,14 +76,14 @@ include "../../../php/connection.php";
 
                     if($iquery){
                         if($pic!=''){
-                            move_uploaded_file($_FILES['img']['tmp_name'], "../assets/blogs/".$_FILES['img']['name']);
+                            move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/blogs/".$_FILES['img']['name']);
                         }
 
 
                         echo "
                         <script>
                             alert('Blog Updated Successfully');
-                            location.replace('blogs.php');
+                            location.replace('edit-blog.php');
                         </script>
                         
                         ";

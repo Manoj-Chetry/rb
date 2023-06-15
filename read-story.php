@@ -7,6 +7,11 @@ if($_GET['id']==""){
     $id = $_GET['id'];
 }
 ?>
+
+<?php 
+                $query = "select * from story where id = '$id'";
+                $fquery = mysqli_query($con,$query);
+                $fdata = mysqli_fetch_array($fquery);?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +19,10 @@ if($_GET['id']==""){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/utility.css">
     <link rel="stylesheet" href="css/read-story.css">
-    <title>Read Story</title>
+    <title><?php echo"$fdata[title]"; ?></title>
 </head>
 
 <body>
@@ -44,7 +50,10 @@ if($_GET['id']==""){
             </div>
         </main>
         <aside>
-            <div class="case"></div>
+            <div class="case">
+                <h3>Recent Stories</h3>
+            </div>
+            <div class="aside-cont">
             <div class="box">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quae totam magnam temporibus sit non
                 deserunt nisi aliquam culpa. Sint reiciendis expedita saepe rem est voluptatum, vero suscipit magnam
@@ -63,6 +72,7 @@ if($_GET['id']==""){
                 nemo
                 ullam deleniti quos id corporis nam, sed tempore quaerat quas!
             </div>
+            </div>  
         </aside>
     </div>
     <?php require "components/sticky.php"; ?>

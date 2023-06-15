@@ -31,7 +31,7 @@ include "../../../php/connection.php";
     <main class="container">
     <h1>Edit Story</h1>
         <hr>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" value="<?php echo"$fdata[title]"; ?>" required>
 
@@ -47,7 +47,7 @@ include "../../../php/connection.php";
 
             <label for="img">Blog Image</label>
             <input type="file" id="img" name="img" accept=".jpg, .jpeg, .png">
-            <input type="hidden" name="old1" id="old1" value="<?php echo"$fdata[image]"; ?>">
+            <input type="text" name="old1" id="old1" value="<?php echo"$fdata[image]"; ?>">
 
             <input type="submit" value="POST" id="btn" name="submit" onclick="">
 
@@ -59,22 +59,30 @@ include "../../../php/connection.php";
                     $desc = $_POST['description'];
                     $cont = $_POST['content'];
                     $auth = $_POST['author'];
-                    $pic = $_FILES['img']['name'];
+                    $old = $_POST['old1'];
+                    $img = $_FILES['img']['name'];
+
+
+                    if($img!=''){
+                        $pic = $img;
+                    }else{
+                        $pic = $old;
+                    }
 
                     $query = "update story set title='$title', description='$desc', content='$cont', author='$auth', image='$pic' where id ='$id'";
 
                     $iquery = mysqli_query($con, $query);
 
                     if($iquery){
-                        if($pic!=''){
-                            move_uploaded_file($_FILES['img']['tmp_name'], "../assets/story/".$_FILES['img']['name']);
+                        if($img!=''){
+                            move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/story/".$_FILES['img']['name']);
                         }
 
 
                         echo "
                         <script>
                             alert('Story Updated Successfully');
-                            location.replace('story.php');
+                            location.replace('edit-story.php');
                         </script>
                         
                         ";

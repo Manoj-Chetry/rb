@@ -12,6 +12,12 @@ if($_GET['id']==""){
 
 ?>
 
+<?php 
+                $query = "select * from blogs where id = '$id'";
+                $fquery = mysqli_query($con,$query);
+                $fdata = mysqli_fetch_array($fquery);
+            ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +28,7 @@ if($_GET['id']==""){
     <link rel="shortcut icon" href="assets/logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/read-blog.css">
     <link rel="stylesheet" href="css/utility.css">
-    <title>Blog-Name</title>
+    <title><?php echo"$fdata[title]" ?> </title>
 </head>
 
 <body>
@@ -31,7 +37,7 @@ if($_GET['id']==""){
     <div class="container">
 
         <main>
-            <?php 
+        <?php 
                 $query = "select * from blogs where id = '$id'";
                 $fquery = mysqli_query($con,$query);
                 $fdata = mysqli_fetch_array($fquery);

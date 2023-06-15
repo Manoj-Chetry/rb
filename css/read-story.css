@@ -48,9 +48,59 @@ aside {
     margin: 20px 0;
 }
 
+.content p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+
+.aside-cont {
+    width: 100%;
+}
+
 .box {
     width: 100%;
     padding: 20px;
     background-color: aliceblue;
     margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    main {
+        max-width: 95%;
+        margin-bottom: 20px;
+    }
+
+    main img {
+        width: 100%;
+    }
+
+    aside {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .case {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .aside-cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .box {
+        width: 30%;
+    }
 }
