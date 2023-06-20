@@ -144,3 +144,24 @@ main {
     height: 40px;
     width: 40px;
 }
+
+.pagination {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 20px 50px;
+}
+
+.pagination a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    margin: 4px 10px;
+}

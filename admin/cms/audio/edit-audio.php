@@ -29,6 +29,7 @@ $slno = 0;
     <h1 id="header">Podcasts - Update and Delete</h1>
 
     <a class="delete" href="add.php">Add Podcast</a>
+    <a href="/rb/admin/admin.php" class="delete">Admin-Panel</a>
 
     <main class="container">
     <table id="table">

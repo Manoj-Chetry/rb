@@ -1,18 +1,28 @@
 .player {
-    height: 200px;
+    height: 250px;
     width: 600px;
-    background-color: rgb(108, 101, 101);
+    background-color: rgb(127, 120, 120);
     margin: 10px auto;
     padding: 20px;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    border: 2px solid yellow;
+}
+
+.up {
+    height: 200px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image {
-    height: 160px;
-    width: 160px;
+    height: 140px;
+    width: 140px;
     margin-right: 20px;
 }
 
@@ -33,6 +43,17 @@
 
 .right span {
     margin-left: 20px;
+}
+
+#des {
+    text-align: justify;
+    font-size: 14px;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 audio {
@@ -62,8 +83,14 @@ tr {
     padding: 10px;
 }
 
+tr:nth-child(odd) {
+    background-color: rgb(150, 150, 90);
+}
+
+
 tr:hover {
-    background-color: rgb(27, 30, 30);
+    opacity: .8;
+    background-color: rgb(143, 37, 37);
 }
 
 .title {
@@ -88,4 +115,8 @@ tr:hover {
         background: none;
         color: aliceblue;
     }
+}
+
+section {
+    margin-top: 40px;
 }

@@ -41,9 +41,19 @@ td {
     background-color: antiquewhite;
 }
 
-#content {
+/* #content {
     height: 400px;
     overflow: hidden;
+} */
+
+#content p {
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    padding: 0 16px;
 }
 
 .image {

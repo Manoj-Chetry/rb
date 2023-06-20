@@ -33,7 +33,7 @@ include "../../../php/connection.php";
     <main class="container">
     <h1>Edit Blog</h1>
         <hr>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" value="<?php echo"$fdata[title]"; ?>" required>
 

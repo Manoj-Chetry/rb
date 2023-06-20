@@ -14,8 +14,6 @@ $iquery = mysqli_query($con,$query);
 $count = mysqli_num_rows($iquery);
 $slno = 0;
 
-
-
 ?>
 
 
@@ -25,7 +23,7 @@ $slno = 0;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../css/admin css/edit-blog.css">
+    <link rel="stylesheet" href="edit-blog.css">
     <title>Blogs</title>
 </head>
 <body>
@@ -33,6 +31,7 @@ $slno = 0;
 
     <a class="delete" href="blogs.php">Blogs</a>
     <a class="delete" href="add-blog.php">Add Blogs</a>
+    <a href="/rb/admin/admin.php" class="delete">Admin-Panel</a>
 
     <main class="container">
     <table id="table">
@@ -54,8 +53,7 @@ $slno = 0;
                         <td><?php echo"$slno"; ?></td>
                         <td><h2><?php echo"$fdata[title]"; ?></h2></td>
                         <td><span><?php echo"$fdata[description]"; ?></span></td>
-                        <td id="content" style="line-clamp: 3; text-overflow: ellipsis;
-    overflow: hidden;"><?php echo"$fdata[content]"; ?></td>
+                        <td id="content"><?php echo"$fdata[content]"; ?></td>
 
                         <td><img class="image" src="../../../assets/blogs/<?php echo"$fdata[image]"; ?>" alt="#"></td>
 
@@ -70,11 +68,7 @@ $slno = 0;
                                         <a class="publish" href="publish.php?id=<?php echo"$fdata[id]"; ?>">Publish</a>
                                 <?php   }
                                 ?>
-
-                                
-                                
-
-
+                              
                                 <a class="delete" href="delete-blog.php?id=<?php echo"$fdata[id]"; ?>">Delete</a>
                             </div>
                         </td>

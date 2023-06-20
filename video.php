@@ -3,15 +3,28 @@ session_start();
 
 include "php/connection.php";
 
-$query = "select * from video order by id desc";
-$iquery = mysqli_query($con,$query);
+$page;
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
 
-$count = mysqli_num_rows($iquery);
+$srm = "select * from video where publish = '1'";
+$run = mysqli_query($con, $srm);
+$count = mysqli_num_rows($run);
+
+$per_page = 3;
+
+$num_pages = ceil($count / $per_page);
+$start = ($page - 1) * 3;
+$query = "select * from video where publish = '1' order by id desc limit $start,$per_page";
+$iquery = mysqli_query($con, $query);
 
 ?>
 
-    
-        
+
+
 
 
 <!DOCTYPE html>
@@ -30,13 +43,9 @@ $count = mysqli_num_rows($iquery);
 <body>
     <?php require "components/nav.php"; ?>
 
-
     <?php require "components/sticky.php" ?>
 
 
-
-
-    
 
     <main>
         <div id="head">
@@ -44,21 +53,30 @@ $count = mysqli_num_rows($iquery);
             <h1>Videos</h1>
         </div>
         <div class="container">
-            <?php 
-            if($count){
-                while($fdata = mysqli_fetch_assoc($iquery)){
-                    if($fdata['publish'] == true){?>
+            <?php
+            if ($count) {
+                while ($fdata = mysqli_fetch_assoc($iquery)) {
+                    if ($fdata['publish'] == true) { ?>
                         <div class="card">
-                            <?php echo"$fdata[link]"; ?>
+                            <?php echo "$fdata[link]"; ?>
                             <div class="card-btm">
                                 <div class="btn-log">MOST WATCHED</div>
-                                <a href=""><?php echo"$fdata[description]"; ?></a>
+                                <a href=""><?php echo "$fdata[description]"; ?></a>
                             </div>
                         </div>
-                        <?php  }
-            $count--; }
-        }
-        ?>
+            <?php  }
+                    $count--;
+                }
+            }
+            ?>
+        </div>
+
+        <div class="pagination">
+            <h3>Pages</h3>
+            <?php
+            for ($i = 1; $i <= $num_pages; $i++) {
+                echo "<a href='video.php?page=" . $i . "'>" . $i . "</a>";
+            } ?>
         </div>
     </main>
 

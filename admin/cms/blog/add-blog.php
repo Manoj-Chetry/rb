@@ -55,9 +55,8 @@ include "../../../php/connection.php";
                     $pic = $_FILES['img']['name'];
                     $er = $_FILES['img']['error'];
 
-                    echo"$er";
 
-                    move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/blogs/.$pic"); 
+                    move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/blogs/$pic"); 
 
                     $query = "insert into blogs (title, description, content, author, image, publish) values ('$title','$desc','$cont','$auth','$pic', 'false')";
 
@@ -67,7 +66,6 @@ include "../../../php/connection.php";
 
 
                     if($iquery){
-                    
 
                         echo "
                         <script>
@@ -82,8 +80,7 @@ include "../../../php/connection.php";
                         </script>
                         ";
                     }
-
-                    
+       
                 }
 
                 ?>
@@ -93,13 +90,13 @@ include "../../../php/connection.php";
 
 
 
-    <script>
+    <!-- <script>
         ClassicEditor
             .create( document.querySelector( '#content' ) )
             .catch( error => {
                 console.error( error );
             } );
-    </script>
+    </script> -->
 </body>
 
 </html>

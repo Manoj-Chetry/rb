@@ -1,5 +1,6 @@
 <?php
 session_start();
+// error_reporting(0);
 include "../../../php/connection.php";
 
 if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
@@ -24,6 +25,7 @@ $count = 1;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
     <link rel="stylesheet" href="../../../css/admin css/edithome.css">
     <title>Edit About</title>
@@ -36,11 +38,13 @@ $count = 1;
 </head>
 
 <body>
+
     <div class="container">
         <h1>Edit About Page</h1>
         <hr>
 
         <a href="view.php" id="btn">About</a>
+        <a href="/rb/admin/admin.php" id="btn">Admin-Panel</a>
         <form method="post" enctype="multipart/form-data">
 
             <?php 
@@ -113,15 +117,24 @@ $count = 1;
 
                    
                     $query = "update about set section = '$about1', image = '$update1' where id = '1'";
-                    $update1 = mysqli_query($con , $query);
+                    
                     $query = "update about set section = '$about2', image = '$update2' where id = '2'";
-                    $update2 = mysqli_query($con , $query);
+                    
                     $query = "update about set section = '$about3',image = '$update3' where id = '3'";
-                    $update3 = mysqli_query($con , $query);
+                    
                     $query = "update about set section = '$about4', image = '$update4' where id = '4'";
-                    $update4 = mysqli_query($con , $query);
+                    
                     $query = "update about set section = '$about5', image = 'null' where id = '5'";
-                    $update5 = mysqli_query($con , $query);
+                    try{
+                        $update1 = mysqli_query($con , $query);
+                        $update2 = mysqli_query($con , $query);
+                        $update3 = mysqli_query($con , $query);
+                        $update4 = mysqli_query($con , $query);
+                        $update5 = mysqli_query($con , $query);
+                    }catch(mysqli_sql_exception $e){
+                        var_dump($e);
+                        exit; 
+                    }
 
                     if($update1&&$update2&&$update3&&$update4&&$update5){
                         echo"

@@ -34,6 +34,8 @@ nav {
 main {
     width: 70%;
     height: fit-content;
+    background-color: rgb(220, 239, 255);
+    padding: 20px;
 }
 
 .img img {
@@ -52,12 +54,12 @@ main {
     }
 }
 
-.title {
+/* .title {
     position: absolute;
     top: 10%;
     left: 20%;
     animation: title-in 3s 0s ease;
-}
+} */
 
 .title h1 {
     font-size: 50px;
@@ -79,8 +81,8 @@ main {
 
 .content {
     animation: fade 4s ease;
-    margin-top: 30px;
-    text-align: start;
+    margin-top: 10px;
+    text-align: justify;
 }
 
 .content p {
@@ -91,13 +93,14 @@ main {
 aside {
     width: 28%;
     height: fit-content;
+    background-color: rgb(220, 239, 255);
 }
 
 aside h2 {
     width: 100%;
     margin: 0 auto 10px auto;
     text-align: center;
-    background-color: rgb(220, 239, 255);
+    background-color: rgb(213, 235, 253);
 }
 
 .blog-card {
@@ -179,6 +182,7 @@ aside h2 {
         width: 100%;
         margin: 30px auto;
         text-align: center;
+        background-color: rgb(208, 231, 249);
     }
 
     .blog-card {

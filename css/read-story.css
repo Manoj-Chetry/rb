@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    width: 1200px;
+    width: 1400px;
     margin: 10px auto;
     display: flex;
     align-items: start;
@@ -21,7 +21,7 @@ body {
 }
 
 main {
-    width: 850px;
+    width: 935px;
     height: fit-content;
     text-align: justify;
     line-height: 1.4;
@@ -38,7 +38,7 @@ main img {
 
 aside {
     height: fit-content;
-    width: 330px;
+    width: 430px;
     text-align: justify;
     line-height: 1.6;
     letter-spacing: 1.6px;
@@ -57,13 +57,45 @@ aside {
 
 .aside-cont {
     width: 100%;
+    margin: 0 auto;
+    
 }
 
 .box {
     width: 100%;
-    padding: 20px;
+    height: 430px;
     background-color: aliceblue;
-    margin-bottom: 20px;
+    position: relative;
+}
+
+.box img{
+    width: 100%;
+    height: 350px;
+    filter: blur(1px) brightness(.4);
+}
+
+.box a{
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.box span{
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+.box img:hover{
+    filter: blur(0) brightness(2);
+}
+
+.read{
+    background-color: #626f8a;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -96,11 +128,13 @@ aside {
 
     .aside-cont {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-evenly;
+        width: 420px;
     }
 
     .box {
-        width: 30%;
+        width: 100%;
+        margin: 20px auto;
     }
 }

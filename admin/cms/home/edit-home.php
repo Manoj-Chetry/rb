@@ -29,6 +29,7 @@ $fdata = mysqli_fetch_array($fetch);
     <div class="container">
         <h1>Edit Home Page</h1>
         <hr>
+        <a href="/rb/admin/admin.php" id="btn">Admin-Panel</a>
         <form method="post" enctype="multipart/form-data">
             <div class="carousel cont">
                 <p style="color:red;">Rename your files different from the previous ones.<br>Every filename has to be unique from all the all the older files.</p>
@@ -52,6 +53,11 @@ $fdata = mysqli_fetch_array($fetch);
                 <input type="file" name="img4" id="img4" accept=".jpg, .png, .jpeg">
                 <input type="hidden" name="old_img4" id="old_img4" value="<?php echo"$fdata[image4]" ?>">
                 <span><?php echo"$fdata[image4]" ?></span><br>
+
+                <label for="img4">Image5</label>
+                <input type="file" name="img5" id="img5" accept=".jpg, .png, .jpeg">
+                <input type="hidden" name="old_img5" id="old_img5" value="<?php echo"$fdata[image5]" ?>">
+                <span><?php echo"$fdata[image5]" ?></span><br>
             </div>
             <input type="submit" value="POST CHANGES" id="btn" name="submit">
         </form>
@@ -75,6 +81,8 @@ $fdata = mysqli_fetch_array($fetch);
                         $old3 = $_POST['old_img3'];
                         $new4 = $_FILES['img4']['name'];
                         $old4 = $_POST['old_img4'];
+                        $new5 = $_FILES['img5']['name'];
+                        $old5 = $_POST['old_img5'];
 
                        
 
@@ -115,10 +123,19 @@ $fdata = mysqli_fetch_array($fetch);
                             $upload4 = true;
                         }
 
+                        if($new5!=''){
+                            $upload5 = move_uploaded_file($_FILES['img5']['tmp_name'], "../../../assets/gallery/".$new5);
+                            unlink("../../../assets/gallery/".$old5);
+                            $update5 = $new5;
+                        }else{
+                            $update5 = $old5;
+                            $upload5 = true;
+                        }
 
 
-                        if($upload1&&$upload2&&$upload3&&$upload4){
-                            $sql = "update home set image1 = '$update1', image2 ='$update2', image3 = '$update3', image4 = '$update4' where id = '1'";
+
+                        if($upload1&&$upload2&&$upload3&&$upload4&&$upload5){
+                            $sql = "update home set image1 = '$update1', image2 ='$update2', image3 = '$update3', image4 = '$update4', image5 = '$update5' where id = '1'";
                             $update = mysqli_query($con,$sql);
                         }
 

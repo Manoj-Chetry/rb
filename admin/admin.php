@@ -84,11 +84,19 @@ $img = $fdata['img'];
             <section class="dashboard">
                 <div class="admin-cont" id="admin-cont">
                     
-                    <a href="cms/blogs.php">
-                        <div class="col">Manage Blogs</div>
+                    <a href="Check/Check_volunteer.php">
+                        <div class="col">Check Volunteer</div>
                     </a>
-                    <div class="col"></div>
-                    <div class="col"></div>
+                    <a href="Check/Check_internship.php">
+                        <div class="col">Check Internship</div>
+                    </a>
+                    <a href="Check/Check_ResourcePerson.php">
+                        <div class="col">Check Resource Person</div>
+                    </a>
+                    <a href="Check/Check_contactUs.php">
+                        <div class="col">Check Contact Us</div>
+                    </a>
+                    
                 </div>
                 <div class="cms-cont" id="cms-cont">
                     <a href="cms/update-logo.php?id=1">
@@ -97,6 +105,9 @@ $img = $fdata['img'];
                     
                     <a href="cms/home/edit-home.php">
                         <div class="col">Edit Home</div>
+                    </a>
+                    <a href="cms/testimonials/manage.php">
+                        <div class="col">Edit Testimonials</div>
                     </a>
                     <a href="cms/about/edit-about.php">
                         <div class="col">Edit About</div>

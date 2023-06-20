@@ -1,17 +1,17 @@
 <?php
-  $insert = false;
-  if(isset($_POST['contact-message'])){
+$insert = false;
+if (isset($_POST['submit'])) {
     $server = "localhost";
     $username = "root";
     $password = "";
-    $db = "forms";
-  
+    $db = "radio-brahmaputra";
+
     $con = mysqli_connect($server, $username, $password, $db);
-  
-    if(!$con){
+
+    if (!$con) {
         die("connection to this database failed due to" . mysqli_connect_error());
     }
-  
+
     // echo "Success connecting to the db"; 
 
     $name = $_POST['name'];
@@ -20,20 +20,24 @@
 
 
 
-    $sql = "INSERT INTO contactUS (`name`,`email`,`message`) VALUES ('$name','$email','$message');";
+    $sql = "INSERT INTO contactuS (`name`,`email`,`message`) VALUES ('$name','$email','$message');";
 
     $result = mysqli_query($con, $sql);
 
-      if($result){
-      $insert = true;
-      header("Location:contact.php");
-    }
-    else{
-      echo "ERROR: $sql <br> $con->error";
-      header("Location:contact.php");
+    if ($result) {
+        $insert = true;
+        echo "
+        <script>
+            alert('Your Response Has Been Submitted Successfully.');
+            location.replace('contact.php');
+        </script>
+        ";
+    } else {
+        echo "ERROR: $sql <br> $con->error";
+        header("Location:contact.php");
     }
     $con->close();
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,15 +54,15 @@
 
 <body>
 
-<?php require "components/nav.php"; ?>
+    <?php require "components/nav.php"; ?>
 
 
     <?php require "components/sticky.php" ?>
-    
-        <div id="head" style="display: flex; align-items: center; margin: 20px auto 0 auto; width: 85vw;">
-            <img src="assets/icons/operator.png" id="head_img" style="width: 50px; margin-right: 20px;">
-            <h1>Contact Us</h1>
-        </div>
+
+    <div id="head" style="display: flex; align-items: center; margin: 20px auto 0 auto; width: 85vw;">
+        <img src="assets/icons/operator.png" id="head_img" style="width: 50px; margin-right: 20px;">
+        <h1>Contact Us</h1>
+    </div>
     <main class="contact">
         <div class="container">
             <div class="contactinfo">
@@ -113,7 +117,7 @@
                 </form>
             </div>
         </div>
-</main>
+    </main>
 
 
     <?php require "components/footer.php"; ?>

@@ -31,6 +31,7 @@ $slno = 0;
 
     <a class="delete" href="story.php">View</a>
     <a class="delete" href="add-story.php">Add New</a>
+    <a href="/rb/admin/admin.php" class="delete">Admin-Panel</a>
 
     <main class="container">
     <table id="table">

@@ -14,7 +14,7 @@ $query = "Delete from blogs where id = '$id'";
 $delete = mysqli_query($con, $query);
 
 if($delete){
-    // unlink("../../assets/blogs/".$img);
+    unlink("../../../assets/blogs/".$img);
     echo"
     <script>
         alert('Deleted Successfully');

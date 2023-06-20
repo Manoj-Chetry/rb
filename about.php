@@ -29,8 +29,7 @@ $count = 1;
 
 <body>
     <?php require "components/nav.php"; ?>
-
-
+    
     <?php require "components/sticky.php" ?>
 
 
@@ -44,7 +43,7 @@ $count = 1;
         while($count<=4){
             $fdata = mysqli_fetch_array($fetch);
             if($count%2==1){?>
-                <div class="row">
+                <div class="row" style="background-color: #CD192A; color: white; text-align: justify; height: fit-content;">
                     <div class="col txt-col">
                         <p>
                             <?php echo"$fdata[section]"; ?>
@@ -55,7 +54,7 @@ $count = 1;
                     </div>
                 </div>
             <?php }else{?>
-                <div class="row">
+                <div class="row"  style=" text-align: justify;">
                     <div class="col img-col">
                             <img src="assets/about/<?php echo"$fdata[image]"; ?>" alt="">
                     </div>
@@ -66,7 +65,7 @@ $count = 1;
                     </div>
                 </div>
         <?php } $count++; }?>
-                <div class="row">
+                <div class="row" style="background: #CD192A; color: white; text-align: justify;">
                     <div class="col txt-col">
                             <p>
                                 <?php echo"$location[section]"; ?>

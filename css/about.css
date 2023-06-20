@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,12 +32,17 @@ b {
     color: #CD192A;
 }
 
+.row {
+    height: fit-content;
+    font-family: Oswald, sans-serif;
+}
+
 .col {
     overflow: hidden;
     width: 50%;
-    height: 70vh;
+    height: fit-content;
     display: flex;
-    margin: 10px 0;
+    /* margin: 10px 0; */
 }
 
 .txt-col {
@@ -57,13 +65,21 @@ b {
 .txt-col p {
     font-weight: 100;
     line-height: 20px;
+    text-align: justify;
 }
 
 .txt-col h2 {
     margin-bottom: 20px;
 }
 
-.img-col {}
+.img-col {
+    height: 55vh;
+}
+
+.img-col img {
+    height: 55vh;
+    width: 100%;
+}
 
 #map {
     height: 100%;
@@ -126,6 +142,7 @@ b {
     .row {
         flex-direction: column;
         width: 100%;
+        height: fit-content;
     }
 
     .col {

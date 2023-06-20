@@ -1,11 +1,3 @@
-<?php
-$query = "select * from logo where id = '1'";
-$fquery = mysqli_query($con, $query);
-
-$fdata = mysqli_fetch_array($fquery);
-
-$img = $fdata['img']; 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -296,17 +288,12 @@ textarea {
    /* The Modal (background) */
    .modal {
     display: none;
-     /* Hidden by default  */
     position: fixed;
-     /* Stay in place  */
     z-index: 1;
-    /* Sit on top */
     padding-top: 30px;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100vh;
     /* Full height */
     overflow: auto;
@@ -321,7 +308,7 @@ textarea {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 999; /* Sit on top */
+    z-index: 1; /* Sit on top */
     padding-top: 30px; /* Location of the box */
     left: 0;
     top: 0;
@@ -450,13 +437,12 @@ textarea {
                 <div class="footer-col">
                     <h4>Out Networks</h4>
                     <ul>
-                        <li><a href="about.php">About us</a></li>
+                        <li><a href="#">About us</a></li>
                         <li><a href="#">Support Us</a></li>
-                        <li><a href="#">Photos</a></li>
-                        <li><a href="video.php">videos</a></li>
+                        <li><a href="#">Videos</a></li>
                         <li><a href="#">Community videos</a></li>
-                        <li><a href="blogs.php">Blogs</a></li>
-                        <li><a href="story.php">Our Works/Stories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Our Works/Stories</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -470,13 +456,13 @@ textarea {
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>follow us</h4>
+                    <h4>Follow us</h4>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/Radiobrahmaputra90.4FM"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/RadioBrahmaput1"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/radiobrahmaputra90.4fm/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@RadioBrahmaputraCRS"><i class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/09954489439"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -495,12 +481,12 @@ textarea {
             <div class="modal-body">
                 <div class="formcontainer">
                     <div class="headdiv">
-                        <img src="assets/logo/<?php echo$img ?>" alt="logo" class="center">
+                        <img src="" alt="logo" class="center">
                         <h2>Volunteer form</h2>
                         <p>Enter Your Details</p>
                     </div>
 
-                    <form action="voluteer.php" method="post">
+                    <form action="volunteer.php" method="post" enctype="multipart/form-data">
                         <div class="content">
                             <div class="input-box">
                                 <label for="fname">First name</label>
@@ -519,14 +505,6 @@ textarea {
                                 <input type="tel" name="ph_no" placeholder="Enter your phone no" minlength="10"
                                     maxlength="10" required> <br>
                             </div>
-                            <!-- <div class="input-box">
-                                <label for="address">Address</label>
-                                <input type="text" name="address" placeholder="Address line 1" required>
-                            </div> -->
-                            <!-- <div class="address-box">
-                                <input type="text" name="address" placeholder="Address line 2" required>
-                            </div> -->
-
                             <div class="input-box">
                                 <Label for="">Date of birth</Label>
                                 <input type="date" required name="Dob" id="">
@@ -534,30 +512,17 @@ textarea {
 
                             <div class="input-box">
                                 <label for="state">&nbsp State</label>
-                                <select id="state" name="state" required>
-                                    <option value="">Select Your District</option>
-                                    <option value="Andhra_Pradesh(Amaravati)">Andhra Pradesh(Amaravati)</option>
-                                    <option value="Arunachal_Pradesh">Arunachal Pradesh(Itanagar)</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                </select>
+                                <input type="text" name="state" placeholder="Enter your STATE name..." required>
                             </div>
-
+                            
                             <div class="input-box">
                                 <label for="district">District</label>
-                                <select id="district" name="district" required>
-                                    <option value="">Select Your State</option>
-                                    <option value="Baksa">Baksa</option>
-                                    <option value="Barpeta">Barpeta</option>
-                                    <option value="Biswanath">Biswanath</option>
-                                    <option value="Bongaigaon">Bongaigaon</option>
-                                    <option value="Cachar">Cachar</option>
-                                </select>
+                                <input type="text" name="district" placeholder="Enter your District name..." required>
                             </div>
 
                             <div class="input-box">
                                 <label for="">Address</label>
-                                <textarea name="address" id="interest" cols="30" rows="10" required></textarea>
+                                <textarea name="address" id="address" cols="30" rows="10" required></textarea>
                             </div>
                             <div class="input-box">
                                 <label for="">Why are you interested?</label>
@@ -565,9 +530,8 @@ textarea {
                             </div>
 
                             <div class="input-box">
-                                <label for="myfile">Attach File (If any)</label>
+                                <label for="myfile">Attach File (Pdf only)</label>
                                 <input type="file" id="file" name="file">
-                                <!-- <label for="file-input" id="custom-file-upload">Choose File</label> -->
                             </div>
 
                             <label class="gendertitle">Gender</label>
@@ -601,12 +565,12 @@ textarea {
             <div class="modal-body">
                 <div class="formcontainer">
                     <div class="headdiv">
-                        <img src="assets/logo/<?php echo$img ?>" alt="logo" class="center">
+                        <img src="images/DU_logo.jpeg" alt="logo" class="center">
                         <h2>Internship form</h2>
                         <p>Enter Your Details</p>
                     </div>
 
-                    <form action="" method="post">
+                    <form action="internship.php" method="post" enctype="multipart/form-data">
                         <div class="content">
                             <div class="input-box">
                                 <label for="fname">First name</label>
@@ -618,7 +582,7 @@ textarea {
                             </div>
                             <div class="input-box">
                                 <label for="email">Email</label>
-                                <input type="text" name="lname" placeholder="Enter your email address..." required>
+                                <input type="email" name="email" placeholder="Enter your email address..." required>
                             </div>
                             <div class="input-box">
                                 <label for="ph_no">Phone Number</label>
@@ -633,42 +597,22 @@ textarea {
 
                             <div class="input-box">
                                 <label for="state">&nbsp State</label>
-                                <select id="state" name="state" required>
-                                    <option value="">Select Your District</option>
-                                    <option value="Andhra_Pradesh(Amaravati)">Andhra Pradesh(Amaravati)</option>
-                                    <option value="Arunachal_Pradesh">Arunachal Pradesh(Itanagar)</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                </select>
+                                <input type="text" name="state" placeholder="Enter your STATE name..." required>
                             </div>
-
+                            
                             <div class="input-box">
                                 <label for="district">District</label>
-                                <select id="district" name="district" required>
-                                    <option value="">Select Your State</option>
-                                    <option value="Baksa">Baksa</option>
-                                    <option value="Barpeta">Barpeta</option>
-                                    <option value="Biswanath">Biswanath</option>
-                                    <option value="Bongaigaon">Bongaigaon</option>
-                                    <option value="Cachar">Cachar</option>
-                                </select>
+                                <input type="text" name="district" placeholder="Enter your District name..." required>
                             </div>
 
                             <div class="input-box">
                                 <label for="">Address</label>
-                                <textarea name="" id="interest" cols="30" rows="10" required></textarea>
+                                <textarea name="address" id="address" cols="30" rows="10" required></textarea>
                             </div>
                             
                             <div class="input-box">
-                                <label for="myfile">Education Qualification</label>
-                                <input type="file" id="myfile" name="file" required>
-                                <!-- <label for="file-input" id="custom-file-upload">Choose File</label> -->
-                            </div>
-
-                            <div class="input-box">
-                                <label for="myfile">Attach file (If any)</label>
-                                <input type="file" id="myfile" name="file1">
-                                <!-- <label for="file-input" id="custom-file-upload">Choose File</label> --> 
+                                <label for="myfile">Education Qualification (Pdf only)</label>
+                                <input type="file" id="file" name="file" required>
                             </div>
 
                             <label class="gendertitle">Gender</label>
@@ -683,7 +627,7 @@ textarea {
 
                 </div>
                 <div class="btn-container">
-                    <button type="submit">Submit</button>
+                    <button type="submit" name="insertintern">Submit</button>
                 </div>
                 </form>
             </div>
@@ -701,12 +645,12 @@ textarea {
             <div class="modal-body">
                 <div class="formcontainer">
                     <div class="headdiv">
-                        <img src="assets/logo/<?php echo$img ?>" alt="logo" class="center">
+                        <img src="images/DU_logo.jpeg" alt="logo" class="center">
                         <h2>Resource Person</h2>
                         <p>Enter Your Details</p>
                     </div>
 
-                    <form action="" method="get">
+                    <form action="resource_person.php" method="post" enctype="multipart/form-data">
                         <div class="content">
                             <div class="input-box">
                                 <label for="fname">First name</label>
@@ -718,7 +662,7 @@ textarea {
                             </div>
                             <div class="input-box">
                                 <label for="email">Email</label>
-                                <input type="text" name="lname" placeholder="Enter your email address..." required>
+                                <input type="email" name="email" placeholder="Enter your email address..." required>
                             </div>
                             <div class="input-box">
                                 <label for="ph_no">Phone Number</label>
@@ -728,7 +672,7 @@ textarea {
 
                             <div class="input-box">
                                 <label for="">Address</label>
-                                <textarea name="" id="interest" cols="30" rows="10" required></textarea>
+                                <textarea name="address" id="address" cols="30" rows="10" required></textarea>
                             </div>
 
                             <div class="input-box">
@@ -738,13 +682,28 @@ textarea {
 
                             <div class="input-box">
                                 <label for="">Domain Area</label>
-                                <textarea name="" id="" cols="30" rows="10" required></textarea>
+                                <textarea name="domain_area" id="" cols="30" rows="10" required></textarea>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="myfile">Attach File (pdf only)</label>
+                                <input type="file" id="file" name="file">
+                            </div>
+
+                            <label class="gendertitle">Gender</label>
+                            <div class="gender-category">
+                                <input type="radio" name="gender" value="male" id="male" required>
+                                <label for="gender">Male</label>
+                                <input type="radio" name="gender" value="female" id="female">
+                                <label for="gender">Female</label>
+                                <input type="radio" name="gender" value="others" id="others">
+                                <label for="gender">Others</label>
                             </div>
 
 
                         </div>
                         <div class="btn-container">
-                            <button type="submit">Submit</button>
+                            <button type="submit" name="insertresource">Submit</button>
                         </div>
                     </form>
                 </div>

@@ -1,9 +1,11 @@
 <?php
 
+error_reporting(0);
+
 include "php/connection.php";
 
 $query = "select * from blogs order by id desc";
-$iquery = mysqli_query($con,$query);
+$iquery = mysqli_query($con, $query);
 
 $count = 3;
 
@@ -32,18 +34,19 @@ $count = 3;
 
     <div class="container" id="container">
         <main>
-            <?php 
-                $sql = "select * from home where id = '1'";
-                $isql = mysqli_query($con,$sql);
-                $fetch = mysqli_fetch_array($isql);
+            <?php
+            $sql = "select * from home where id = '1'";
+            $isql = mysqli_query($con, $sql);
+            $fetch = mysqli_fetch_array($isql);
             ?>
             <div class="carousel">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image1]"; ?>" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image2]"; ?>" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image3]"; ?>" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/gallery/<?php echo"$fetch[image4]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo "$fetch[image1]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo "$fetch[image2]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo "$fetch[image3]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo "$fetch[image4]"; ?>" alt=""></div>
+                        <div class="swiper-slide"><img src="assets/gallery/<?php echo "$fetch[image5]"; ?>" alt=""></div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -52,35 +55,43 @@ $count = 3;
             </div>
 
         </main>
-        <section class="podcasts">
+        <section class="podcasts pod1">
             <div class="lead">
                 <h1 class="title">Top Audio Podcasts</h1>
                 <a href="audio.php" class="view-link">View All</a>
             </div>
 
-            
+
             <div class="acontainer thumb-cont">
+
                 <?php
-                    $sql = "select * from audio order by id desc";
-                    $fsql = mysqli_query($con, $sql);
-                    $p = 6;
-                    while($p>0){
-                        $fget = mysqli_fetch_array($fsql);?>
-                        <a href="player.php?id=<?php echo "$fget[id]"; ?>">
+                $sql = "select distinct playlist from audio order by id desc";
+                $faud = mysqli_query($con, $sql);
+                $num = mysqli_num_rows($faud);
+                $rank = 1;
+                while ($num > 0) {
+                    $data = mysqli_fetch_array($faud);
+                    $q = "select * from audio where playlist = '$data[playlist]'";
+                    $fq = mysqli_query($con, $q);
+                    $dp = mysqli_fetch_assoc($fq); ?>
+                    <a href="player.php?id=<?php echo "$dp[id]"; ?>">
                         <div class="acard">
                             <div class="top"></div>
                             <div class="bottom"></div>
                             <div class="center">
-                                <img class="aimg" src="assets/images/<?php echo"$fget[cover]"; ?>" alt="">
+                                <img class="aimg" src="assets/images/<?php echo "$dp[cover]"; ?>" alt="">
                             </div>
                             <div class="play">
-                                <img src="assets/images/play-button.png" alt="">
+                                <img src="assets/images/play.png" alt="">
                             </div>
                         </div>
-                        </a>
-                    <?php $p--; }
+                    </a>
+                <?php $num--;
+                }
+
+
                 ?>
-                
+
             </div>
         </section>
 
@@ -90,28 +101,29 @@ $count = 3;
                 <a href="video.php" class="view-link">View All</a>
             </div>
             <div class="thumb-cont">
-            <?php
-                    $vsql = "select * from video order by id desc";
-                    $vfetch = mysqli_query($con, $vsql);
-                    $vdata = 6;
-                    while($vdata>0){
-                        $vget = mysqli_fetch_array($vfetch);?>
-                        <div class="audio-card">
-                    <?php echo"$vget[link]" ?>
-                </div>
-                    <?php $vdata--; }?>
-                
+                <?php
+                $vsql = "select * from video order by id desc";
+                $vfetch = mysqli_query($con, $vsql);
+                $vdata = 6;
+                while ($vdata > 0) {
+                    $vget = mysqli_fetch_array($vfetch); ?>
+                    <div class="audio-card">
+                        <?php echo "$vget[link]" ?>
+                    </div>
+                <?php $vdata--;
+                } ?>
+
             </div>
         </section>
 
-        
+
         <section class="about">
             <div class="lead">
                 <h1 class="title">About-Us</h1>
                 <a href="about.php" class="view-link">View All</a>
             </div>
             <p class="content">
-                <?php echo"$fetch[about]"; ?> 
+                <?php echo "$fetch[about]"; ?>
             </p>
             <a href="support.php" class="support-btn">Support-Us</a>
         </section>
@@ -124,25 +136,26 @@ $count = 3;
                 <a href="story.php" class="view-link">View All</a>
             </div>
             <div class="blog-container">
-            
+
                 <?php
                 $wquery = "select * from story order by id desc";
-                $wfetch = mysqli_query($con,$wquery);
-                
+                $wfetch = mysqli_query($con, $wquery);
+
                 $c = 3;
-                while($c>0){?>
-                <?php $wdata = mysqli_fetch_assoc($wfetch); ?>
-                <div class="box">
-                    <img src="assets/story/<?php echo"$wdata[image]"; ?>" alt="Image 1">
-                    <div class="bottom">
-                    <a href="read-story.php?id=<?php echo"$wdata[id]"; ?>">Read More</a>
-                    <span>
-                        <?php echo"$wdata[title]"; ?>
-                    </span>
+                while ($c > 0) { ?>
+                    <?php $wdata = mysqli_fetch_assoc($wfetch); ?>
+                    <div class="box">
+                        <img src="assets/story/<?php echo "$wdata[image]"; ?>" alt="Image 1">
+                        <div class="bottom">
+                            <a href="read-story.php?id=<?php echo "$wdata[id]"; ?>">Read More</a>
+                            <span>
+                                <?php echo "$wdata[title]"; ?>
+                            </span>
+                        </div>
+
                     </div>
-                    
-                </div>
-                <?php $c--; } ?>
+                <?php $c--;
+                } ?>
             </div>
         </section>
 
@@ -152,21 +165,24 @@ $count = 3;
                 <a href="blogs.php" class="view-link">View All</a>
             </div>
             <div class="blog-container">
-            <?php
-                while($count>0){?>
-                <?php $fdata = mysqli_fetch_assoc($iquery); ?>
-                <div class="box">
-                    <img src="assets/blogs/<?php echo"$fdata[image]";?>" alt="Image">
-                    <div class="bottom">
-                        <a href="#">
-                            Read Blog
-                        </a>
-                        <span>
-                        <?php echo"$fdata[title]"; ?>
-                        </span>
-                    </div>
-                </div>
-                <?php $count--; }
+                <?php
+                while ($count > 0) { ?>
+                    <?php $fdata = mysqli_fetch_assoc($iquery);
+                    if ($fdata['publish'] == true) { ?>
+                        <div class="box">
+                            <img src="assets/blogs/<?php echo "$fdata[image]"; ?>" alt="Image">
+                            <div class="bottom">
+                                <a href="read-blog.php?id=<?php echo "$fdata[id]"; ?>">
+                                    Read Blog
+                                </a>
+                                <span>
+                                    <?php echo "$fdata[title]"; ?>
+                                </span>
+                            </div>
+                        </div>
+                <?php }
+                    $count--;
+                }
                 ?>
             </div>
         </section>
@@ -193,30 +209,35 @@ $count = 3;
                 <img src="assets/icons/quote.png" alt="">
             </div>
             <div class="test-cont">
-                <span class="tcard">
-                    <img src="assets/icons/t3.jpg" alt="">
-                    <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
 
-                    <span class="author">John Doe</span>
-                </span>
-                <span class="tcard">
-                    <img src="assets/icons/t1.jpg" alt="">
-                    <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
+                <?php
+                $tquery = "select * from testimonials order by id desc";
+                $tes = mysqli_query($con, $tquery);
 
-                    <span class="author">John Doe</span>
-                </span>
-                <span class="tcard">
-                    <img src="assets/icons/t2.jpg" alt="">
-                    <span>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nesciunt delectus molestiae pariatur illum sapiente quis quia animi autem fugiat."</span>
+                $no = 3;
+                while ($no > 0) {
+                    $tdata = mysqli_fetch_assoc($tes);
+                    if ($tdata['view'] == true) { ?>
+                        <span class="tcard">
+                            <img src="testimonials/<?php echo "$tdata[image]"; ?>" alt="">
+                            <span><?php echo "$tdata[message]"; ?></span>
 
-                    <span class="author"><img src="assets/icons/star.png">John Doe</span>
-                </span>
+                            <span class="author"><?php echo "$tdata[name]"; ?></span>
+                        </span>
+                <?php } else {
+                        $no--;
+                        continue;
+                    }
+                    $no--;
+                }
+                ?>
+
             </div>
             <div class="line"></div>
 
         </section>
 
-        
+
 
     </div>
 
@@ -272,10 +293,8 @@ $count = 3;
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script type="text/javascript">
         $('.autoplay').slick({
@@ -284,10 +303,9 @@ $count = 3;
             autoplay: true,
             autoplaySpeed: 2000,
         });
-
     </script>
 
-    
+
 
 
 </body>

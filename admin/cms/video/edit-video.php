@@ -43,6 +43,7 @@ $slno = 0;
 
 <a class="delete" href="view.php">Videos</a>
 <a class="delete" href="addvideo.php">Add Videos</a>
+<a href="/rb/admin/admin.php" class="delete">Admin-Panel</a>
 
 <main class="container">
 <table id="table">
