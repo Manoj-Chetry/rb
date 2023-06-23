@@ -1,16 +1,7 @@
 <?php
 $insert = false;
 if (isset($_POST['submit'])) {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "radio-brahmaputra";
-
-    $con = mysqli_connect($server, $username, $password, $db);
-
-    if (!$con) {
-        die("connection to this database failed due to" . mysqli_connect_error());
-    }
+    include "php/connection.php";
 
     // echo "Success connecting to the db"; 
 

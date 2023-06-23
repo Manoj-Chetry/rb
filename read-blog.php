@@ -48,7 +48,7 @@ $fdata = mysqli_fetch_array($fquery);
             <div class="title">
 
 
-                <h1><?php echo "$fdata[title]"; ?></h1>
+                <h2 style="margin-bottom: 20px;"><?php echo "$fdata[title]"; ?></h2>
             </div>
             <div class="des">
                 <h3><?php echo "$fdata[description]"; ?></h3>

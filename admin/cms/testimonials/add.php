@@ -2,7 +2,7 @@
 session_start();
 // error_reporting(0);
 
-if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
+if (!isset($_SESSION['log']) || $_SESSION['log'] != true) {
     header("location: ../../../login.php");
 }
 
@@ -37,45 +37,44 @@ include "../../../php/connection.php";
             <input type="file" id="img" name="img" required accept=".jpg, .jpeg, .png">
 
             <input type="submit" name="submit" id="btn" value="POST" class="btn">
-            </form>
-            <div style="color: black;">
-                <?php
+        </form>
+        <div style="color: black;">
+            <?php
 
-                if(isset($_POST['submit'])){
-                    $name = $_POST['name'];
-                    $msg = $_POST['msg'];
-                    $img = $_FILES['img']['name'];
-
-
-                    move_uploaded_file($_FILES['img']['tmp_name'], "../../../testimonials/$img"); 
-
-                    $query = "insert into testimonials (name, message, image, view) values ('$name','$msg','$img','0')";
-
-                    
-                    $iquery = mysqli_query($con, $query);
+            if (isset($_POST['submit'])) {
+                $name = $_POST['name'];
+                $msg = mysqli_escape_string($con, $_POST['msg']);
+                $img = $_FILES['img']['name'];
 
 
-                    if($iquery){
+                move_uploaded_file($_FILES['img']['tmp_name'], "../../../testimonials/$img");
 
-                        echo "
+                $query = "insert into testimonials (name, message, image, view) values ('$name','$msg','$img','0')";
+
+
+                $iquery = mysqli_query($con, $query);
+
+
+                if ($iquery) {
+
+                    echo "
                         <script>
                             alert('Posted Successfully');
                             location.replace('manage.php');
                         </script>
                         ";
-                    }else{
-                        echo"
+                } else {
+                    echo "
                         <script>
                             alert('Failed to Post!');
                         </script>
                         ";
-                    }
-       
                 }
+            }
 
-                ?>
-            </div>
-        
+            ?>
+        </div>
+
     </div>
 
 

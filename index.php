@@ -17,6 +17,7 @@ $count = 3;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Radio Brahmaputra, Brahmaputra Community Radio Station, Radio Station in Assam, Radio Station in Dibrugarh, Community Radio, Community Radio in Assam, Community Radio in India, Radio station, Online radio, Live streaming, Music radio, Internet radio, Radio broadcasting, Listen live, Radio shows, Popular songs, Music playlist, Local radio, Radio programs, Radio frequency, Entertainment radio, Podcasts, Radio station events, Radio Brahmaputra, Community radio Dibrugarh, Assamese music radio, Local radio station, Assam community radio, Dibrugarh radio shows, Assamese cultural programs, Folk music radio, Assamese radio broadcasting, Community radio initiatives, Radio programs in Dibrugarh, Assamese language radio, Traditional music shows, Local news updates, Radio for social awareness, Assam community development, Dibrugarh radio frequency, Folklore and storytelling, Assamese radio DJs, Community engagement events, Assamese radio programs, Sadri language radio shows, Hajong community radio, Deori dialect programs, Tiwa language radio station, Mishing cultural shows, Multilingual radio broadcasts, Assamese music and talk shows, Local language entertainment, Assamese folk music programs, Hajong traditional storytelling, Cultural diversity radio, Assamese news updates, Sadri language folk songs, Tiwa dialect radio station, Mishing community programs, Assamese language preservation, Diverse linguistic content, Language and cultural heritage, Assamese radio personalities, Health:, Health tips, Wellness programs, Health education, Disease prevention, Healthy living, Nutrition:, Balanced diet, Nutritional guidelines, Healthy eating habits, Nutrient-rich foods, Dietary recommendations, Women's health:, Women's reproductive health, Women's wellness, Women's healthcare, Maternal health, Women's health issues, Child health:, Pediatric care, Child development, Child nutrition, Immunization, Early childhood health, Maternal health:, Prenatal care, Postnatal care, Maternal nutrition, Maternal well-being, Maternity services, Parenting:, Parenting advice, Parenting tips, Childcare guidance, Parenting resources, Parenting support, Child nutrition:, Healthy eating for kids, Child-friendly recipes, Nutritional needs of children, Balanced meals for children, Feeding tips for kids, Women and child wellness:, Women's well-being, Child wellness programs, Women and child healthcare, Wellness activities for women and children, Holistic wellness for women and children, Health awareness:, Health campaigns, Health awareness programs, Health education initiatives, Public health promotion, Community health awareness, Preventive healthcare:, Preventive medicine, Preventive health tips, Preventive care strategies, Health screenings, Preventive healthcare information">
     <link rel="shortcut icon" href="assets/logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
@@ -128,7 +129,6 @@ $count = 3;
             <a href="support.php" class="support-btn">Support-Us</a>
         </section>
 
-        <section class="addvertisements"></section>
 
         <section class="work">
             <div class="lead">
@@ -143,18 +143,20 @@ $count = 3;
 
                 $c = 3;
                 while ($c > 0) { ?>
-                    <?php $wdata = mysqli_fetch_assoc($wfetch); ?>
-                    <div class="box">
-                        <img src="assets/story/<?php echo "$wdata[image]"; ?>" alt="Image 1">
-                        <div class="bottom">
-                            <a href="read-story.php?id=<?php echo "$wdata[id]"; ?>">Read More</a>
-                            <span>
-                                <?php echo "$wdata[title]"; ?>
-                            </span>
-                        </div>
+                    <?php $wdata = mysqli_fetch_assoc($wfetch);
+                    if ($wdata['publish'] == true) { ?>
+                        <div class="box">
+                            <img src="assets/story/<?php echo "$wdata[image]"; ?>" alt="Image 1">
+                            <div class="bottom">
+                                <a href="read-story.php?id=<?php echo "$wdata[id]"; ?>">Read More</a>
+                                <span>
+                                    <?php echo "$wdata[title]"; ?>
+                                </span>
+                            </div>
 
-                    </div>
-                <?php $c--;
+                        </div>
+                <?php }
+                    $c--;
                 } ?>
             </div>
         </section>
@@ -189,13 +191,26 @@ $count = 3;
 
         <section id="partners-section">
             <div class="lead">
-                <h1 class="title">Our Partners</h1>
+                <h1 class="title">We Featured In</h1>
             </div>
             <div class="autoplay">
-                <img src="assets/partners/logo1.png" alt="">
-                <img src="assets/partners/logo2.png" alt="">
-                <img src="assets/partners/logo3.png" alt="">
-                <img src="assets/partners/logo4.png" alt="">
+                <a href="https://mailchi.mp/3b05f6233eb2/behaviour-change-matters-5045477"><img src="assets/partners/1 UNICEF_logo_2016.png" alt=""></a>
+                <a href="https://www.thehindu.com/society/community-radio-as-a-phenomenon-winning-hertz/article22835066.ece"><img src="assets/partners/2 The Hindu.png" alt=""></a>
+                <a href="https://timesofindia.indiatimes.com/city/guwahati/radio-brahmaputra-creates-waves/articleshow/48350286.cms"><img src="assets/partners/3 TOI.png" alt=""></a>
+                <a href="https://blogs.dw.com/womentalkonline/index.html%3Fp=8877.html"><img src="assets/partners/4 DW.png" alt=""></a>
+                <a href="https://www.telegraphindia.com/north-east/voice-of-the-assam-people-combats-coronavirus-fear/cid/1763265"><img src="assets/partners/5 The_Telegraph_India.png" alt=""></a>
+                <a href="https://www.deccanherald.com/national/east-and-northeast/covid-19-awareness-radio-and-whatsapp-breaking-language-barriers-in-assam-tea-gardens-riverine-villages-818721.html"><img src="assets/partners/6 Deccan Herald.jpg" alt=""></a>
+                <a href="https://lifestyle.livemint.com/news/talking-point/the-sound-waves-of-change-111641399878744.html"><img src="assets/partners/7 Mint lounge-logo.png" alt=""></a>
+                <a href="https://www.firstpost.com/health/community-radio-stations-across-india-brave-lockdown-severe-fund-crunch-to-ensure-last-mile-awareness-on-covid-19-8288841.html"><img src="assets/partners/8 First Post.png" alt=""></a>
+                <a href="https://www.ideasforindia.in/topics/poverty-inequality/assams-brahmaputra-community-radio-station-innovation-in-health-communication.html"><img src="assets/partners/9 Idea for India.png" alt=""></a>
+                <a href="https://www.theweekendleader.com/Culture/1903/voice-of-dibrugarh.html"><img src="assets/partners/10 The Weekend Leader.jpg" alt=""></a>
+                <a href="http://kxsd.org/index.php?option=com_resources&task=details&id=1264&Itemid=106"><img src="assets/partners/11 Teri.png" alt=""></a>
+                <a href="https://www.thecitizen.in/index.php/en/NewsDetail/index/9/19134/Talk-the-Covid-19-Talk-With-Community-Radio--"><img src="assets/partners/12 The Citizen.png" alt=""></a>
+                <a href="https://www.youthkiawaaz.com/2019/06/community-media-brahmaputra-community-radio-station/"><img src="assets/partners/13 Youth ki Awaz.png" alt=""></a>
+                <a href="https://www.apc.org/sites/default/files/final_community_radio_report.pdf"><img src="assets/partners/14 APC.png" alt=""></a>
+                <a href="https://link.springer.com/referenceworkentry/10.1007/978-981-10-7035-8_9-1"><img src="assets/partners/15 The Spinger.png" alt=""></a>
+                <a href="https://www.iosrjournals.org/iosr-jhss/papers/Vol.27-Issue11/Ser-6/A2711060104.pdf"><img src="assets/partners/16 IOSR.png" alt=""></a>
+                <a href="https://www.researchgate.net/publication/354523215_A_Grassroots_radio_initiative_knits_together_the_Hajongs"><img src="assets/partners/17 researchgate-logo.png" alt=""></a>
             </div>
 
         </section>

@@ -1,16 +1,17 @@
 <?php
   $insert = false;
   if(isset($_POST['insertresource'])){
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "rb";
+    include "../../php/connection.php";
+    // $server = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $db = "radio-brahmaputra";
   
-    $con = mysqli_connect($server, $username, $password, $db);
+    // $con = mysqli_connect($server, $username, $password, $db);
   
-    if(!$con){
-        die("connection to this database failed due to" . mysqli_connect_error());
-    }
+    // if(!$con){
+    //     die("connection to this database failed due to" . mysqli_connect_error());
+    // }
   
     // echo "Success connecting to the db"; 
 
@@ -57,13 +58,11 @@
 
       if($result){
       $insert = true;
-      header("Location:footer.php");
+      header("Location:../../index.php");
     }
     else{
       echo "ERROR: $sql <br> $con->error";
-      header("Location:footer.php");
+      header("Location:../../index.php");
     }
     $con->close();
   }
-?>
-

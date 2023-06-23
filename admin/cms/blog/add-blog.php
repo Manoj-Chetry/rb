@@ -2,7 +2,7 @@
 session_start();
 // error_reporting(0);
 
-if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
+if (!isset($_SESSION['log']) || $_SESSION['log'] != true) {
     header("location: ../../../login.php");
 }
 
@@ -33,7 +33,7 @@ include "../../../php/connection.php";
             <input type="text" id="description" name="description" required>
 
             <label for="content">Content</label>
-            <textarea name="content" id="content" cols="30" rows="10" ></textarea>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
 
             <label for="author">Author</label>
             <input type="text" id="author" name="author" required>
@@ -43,60 +43,59 @@ include "../../../php/connection.php";
             <input type="file" id="img" name="img" required accept=".jpg, .jpeg, .png">
 
             <input type="submit" name="submit" id="submit" value="POST" class="btn">
-            </form>
-            <div style="color: black;">
-                <?php
+        </form>
+        <div style="color: black;">
+            <?php
 
-                if(isset($_POST['submit'])){
-                    $title = $_POST['title'];
-                    $desc = $_POST['description'];
-                    $cont = $_POST['content'];
-                    $auth = $_POST['author'];
-                    $pic = $_FILES['img']['name'];
-                    $er = $_FILES['img']['error'];
-
-
-                    move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/blogs/$pic"); 
-
-                    $query = "insert into blogs (title, description, content, author, image, publish) values ('$title','$desc','$cont','$auth','$pic', 'false')";
-
-                    
-                    
-                    $iquery = mysqli_query($con, $query);
+            if (isset($_POST['submit'])) {
+                $title = $_POST['title'];
+                $desc = $_POST['description'];
+                $cont = mysqli_escape_string($con, $_POST['content']);
+                $auth = $_POST['author'];
+                $pic = $_FILES['img']['name'];
+                $er = $_FILES['img']['error'];
 
 
-                    if($iquery){
+                move_uploaded_file($_FILES['img']['tmp_name'], "../../../assets/blogs/$pic");
 
-                        echo "
+                $query = "insert into blogs (title, description, content, author, image, publish) values ('$title','$desc','.$cont.','$auth','$pic', 'false')";
+
+
+
+                $iquery = mysqli_query($con, $query);
+
+
+                if ($iquery) {
+
+                    echo "
                         <script>
                             alert('Blog Posted Successfully');
                             location.replace('edit-blog.php');
                         </script>
                         ";
-                    }else{
-                        echo"
+                } else {
+                    echo "
                         <script>
                             alert('Failed to Post!');
                         </script>
                         ";
-                    }
-       
                 }
+            }
 
-                ?>
-            </div>
-        
+            ?>
+        </div>
+
     </div>
 
 
 
-    <!-- <script>
+    <script>
         ClassicEditor
-            .create( document.querySelector( '#content' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script> -->
+            .create(document.querySelector('#content'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>

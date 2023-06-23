@@ -39,12 +39,12 @@ $fdata = mysqli_fetch_array($fquery); ?>
             $fquery = mysqli_query($con, $query);
             $fdata = mysqli_fetch_array($fquery); ?>
             <img src="assets/story/<?php echo "$fdata[image]"; ?>" alt="">
-            <h1 class="title">
+            <h2 class="title" style="margin-bottom: 20px;">
                 <?php echo "$fdata[title]"; ?>
-            </h1>
+            </h2>
             <h4 class="desc"><?php echo "$fdata[description]"; ?></h4>
             <div class="content">
-                <p>
+                <p style="font-size: 16px; text-align: justify;">
                     <?php echo "$fdata[content]"; ?>
                 </p>
             </div>
@@ -64,7 +64,7 @@ $fdata = mysqli_fetch_array($fquery); ?>
                     <div class="box" style="color: black; text-align: justify;">
                         <img src="assets/story/<?php echo "$fget[image]"; ?>" alt="">
                         <a href="read-story.php?id=<?php echo "$fget[id]"; ?>"></a>
-                        <span><?php echo "$fget[description]"; ?></span>
+                        <span><?php echo "$fget[title]"; ?></span>
 
                         <div class="read">Read Story</div>
                     </div>

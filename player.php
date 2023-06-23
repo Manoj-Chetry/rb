@@ -115,7 +115,7 @@ $fetch = mysqli_fetch_assoc($fquery);
         </section>
     </main>
 
-
+    <?php require "components/footer.php" ?>
 
     <script>
         function copy() {

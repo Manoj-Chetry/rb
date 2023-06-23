@@ -16,7 +16,7 @@ $per_page = 3;
 
 $num_pages = ceil($count / $per_page);
 $start = ($page - 1) * 3;
-$query = "select * from story where publish = '1' order by id desc limit $start,$per_page";
+$query = "select * from story order by id desc limit $start,$per_page";
 $iquery = mysqli_query($con, $query);
 ?>
 
@@ -48,7 +48,7 @@ $iquery = mysqli_query($con, $query);
             <?php
             if ($count) {
                 while ($fdata = mysqli_fetch_assoc($iquery)) {
-                    if ($fdata['publish'] == true) { ?>
+                    if ($fdata['publish'] == 1) { ?>
                         <a href="read-story.php?id=<?php echo "$fdata[id]"; ?>">
                             <div class="card">
                                 <img src="assets/story/<?php echo "$fdata[image]" ?>" alt="#">

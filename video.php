@@ -14,11 +14,11 @@ $srm = "select * from video where publish = '1'";
 $run = mysqli_query($con, $srm);
 $count = mysqli_num_rows($run);
 
-$per_page = 3;
+$per_page = 30;
 
 $num_pages = ceil($count / $per_page);
-$start = ($page - 1) * 3;
-$query = "select * from video where publish = '1' order by id desc limit $start,$per_page";
+$start = ($page - 1) * 30;
+$query = "select * from video order by id desc limit $start,$per_page";
 $iquery = mysqli_query($con, $query);
 
 ?>
@@ -56,7 +56,7 @@ $iquery = mysqli_query($con, $query);
             <?php
             if ($count) {
                 while ($fdata = mysqli_fetch_assoc($iquery)) {
-                    if ($fdata['publish'] == true) { ?>
+                    if ($fdata['publish'] == 1) { ?>
                         <div class="card">
                             <?php echo "$fdata[link]"; ?>
                             <div class="card-btm">
