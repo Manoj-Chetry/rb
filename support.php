@@ -20,7 +20,7 @@
       <h1>Support-Us</h1>
     </div>
     <div class="container">
-      <form action="" method="post">
+      <form action="pay.php" method="post">
 
         <div class="row">
 
@@ -30,30 +30,30 @@
 
             <div class="inputBox">
               <span>Full name :</span>
-              <input type="text" placeholder="john deo">
+              <input name="name" type="text" placeholder="john deo">
             </div>
             <div class="inputBox">
               <span>Email :</span>
-              <input type="email" placeholder="johndeo@example.com">
+              <input name="email" type="email" placeholder="johndeo@example.com">
             </div>
             <div class="inputBox">
               <span>Address :</span>
-              <input type="text" placeholder="Enter your address">
+              <input name="address" type="text" placeholder="Enter your address">
             </div>
             <div class="inputBox">
               <span>Phone No</span>
-              <input type="tel" placeholder="Phone Number">
+              <input name="ph_no" type="tel" placeholder="Phone Number">
             </div>
             <div class="inputBox">
               <span>Amount</span>
-              <input type="text" placeholder="Enter Donation Amount">
+              <input name="amount" type="number" placeholder="Enter Donation Amount">
             </div>
 
 
           </div>
         </div>
 
-        <input type="submit" value="proceed to checkout" class="submit-btn">
+        <input type="submit" name="donate" value="proceed to checkout" class="submit-btn">
 
       </form>
 

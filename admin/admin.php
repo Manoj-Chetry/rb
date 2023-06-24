@@ -2,7 +2,7 @@
 session_start();
 include "../php/connection.php";
 
-if(!isset($_SESSION['log']) || $_SESSION['log'] != true){
+if (!isset($_SESSION['log']) || $_SESSION['log'] != true) {
     header("location: ../login.php");
 }
 
@@ -11,7 +11,7 @@ $fquery = mysqli_query($con, $query);
 
 $fdata = mysqli_fetch_array($fquery);
 
-$img = $fdata['img']; 
+$img = $fdata['img'];
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $img = $fdata['img'];
     <div class="container">
         <aside>
             <div class="aside-head">
-                <img id="logo" src="../assets/logo/<?php echo$img ?>" alt="logo">
+                <img id="logo" src="../assets/logo/<?php echo $img ?>" alt="logo">
                 <h2>Radio Brahmaputra</h2>
             </div>
             <hr style="width: 100%; margin-bottom: 20px;">
@@ -83,7 +83,7 @@ $img = $fdata['img'];
 
             <section class="dashboard">
                 <div class="admin-cont" id="admin-cont">
-                    
+
                     <a href="Check/Check_volunteer.php">
                         <div class="col">Check Volunteer</div>
                     </a>
@@ -93,16 +93,19 @@ $img = $fdata['img'];
                     <a href="Check/Check_ResourcePerson.php">
                         <div class="col">Check Resource Person</div>
                     </a>
+                    <a href="Check/Check_Donation.php">
+                        <div class="col">Check Donations</div>
+                    </a>
                     <a href="Check/Check_contactUs.php">
                         <div class="col">Check Contact Us</div>
                     </a>
-                    
+
                 </div>
                 <div class="cms-cont" id="cms-cont">
                     <a href="cms/update-logo.php?id=1">
                         <div class="col">Change Logo</div>
                     </a>
-                    
+
                     <a href="cms/home/edit-home.php">
                         <div class="col">Edit Home</div>
                     </a>
@@ -118,7 +121,7 @@ $img = $fdata['img'];
                     <a href="cms/video/edit-video.php">
                         <div class="col">Edit Video</div>
                     </a>
-                    
+
                     <a href="cms/blog/edit-blog.php">
                         <div class="col">Edit Blogs</div>
                     </a>
@@ -149,6 +152,7 @@ $img = $fdata['img'];
             adminBtn.style.background = "black";
             cmsBtn.style.background = "none";
         }
+
         function drop2() {
             const adminBtn = document.getElementById('admin-btn');
             const cmsBtn = document.getElementById('cms-btn');
